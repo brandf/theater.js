@@ -1,8 +1,11 @@
+import { mat4 } from 'gl-matrix';
+
 export default class SceneObj {
   constructor() {
     this.scene = null;
     this.parent = null;
     this.children = null;
+    this.modelMatrix = mat4.create();
   }
   addChild(child) {
     if (child.parent !== null) { throw new Error('child already parented'); }

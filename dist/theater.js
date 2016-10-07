@@ -6657,7 +6657,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 13 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
@@ -6666,6 +6666,8 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _glMatrix = __webpack_require__(2);
 	
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
@@ -6678,6 +6680,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    this.scene = null;
 	    this.parent = null;
 	    this.children = null;
+	    this.modelMatrix = _glMatrix.mat4.create();
 	  }
 	
 	  _createClass(SceneObj, [{
