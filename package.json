@@ -1,0 +1,36 @@
+{
+  "name": "theater.js",
+  "version": "0.1.0",
+  "description": "A 3d scene graph.",
+  "scripts": {
+    "build": "webpack --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandf/theater.js.git"
+  },
+  "author": "Brandon Furtwangler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandf/theater.js/issues"
+  },
+  "homepage": "https://github.com/brandf/theater.js#readme",
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-es2017": "^6.16.0",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.2",
+    "eslint-plugin-react": "^6.3.0",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  },
+  "dependencies": {
+    "gl-matrix": "^2.3.2"
+  }
+}
