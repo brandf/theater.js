@@ -1,8 +1,8 @@
 {
   "name": "theater.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A 3d scene graph.",
-  "main": "build/theater.js",
+  "main": "dist/theater.js",
   "scripts": {
     "build": "webpack --progress --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
