@@ -1,4 +1,4 @@
-/******/ (function(modules) { // webpackBootstrap
+define(function() { return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -6959,5 +6959,5 @@
 	exports.default = Actor;
 
 /***/ }
-/******/ ]);
+/******/ ])});;
 //# sourceMappingURL=theater.js.map

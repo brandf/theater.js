@@ -8,6 +8,7 @@ module.exports = {
     filename: 'theater.js',
     sourceMapFilename: '[file].map',
     devtoolModuleFilenameTemplate: 'webpack:///[resource-path]?[loaders]',
+    libraryTarget: 'amd',
   },
   devtool: 'source-map',
   module: {
