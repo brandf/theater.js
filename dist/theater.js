@@ -6798,7 +6798,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    key: 'tick',
 	    value: function tick(time) {
 	      this.updateScene(time);
-	      this.drawScene();
+	      this.drawScene(time);
 	    }
 	  }, {
 	    key: 'updateScene',
@@ -6807,9 +6807,9 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }, {
 	    key: 'drawScene',
-	    value: function drawScene() {
+	    value: function drawScene(time) {
 	      if (this.camera) {
-	        this.traverse('draw', this.camera);
+	        this.traverse('draw', time, this.camera);
 	      }
 	    }
 	  }]);
@@ -6856,7 +6856,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    var _this = _possibleConstructorReturn(this, (Camera.__proto__ || Object.getPrototypeOf(Camera)).call(this));
 	
 	    _this.viewMatrix = _glMatrix.mat4.create();
-	    _this.projectionMatrix = _glMatrix.mat4.create();
+	    _this.projMatrix = _glMatrix.mat4.create();
 	    _this.fov = Math.PI / 2.0;
 	    _this.near = 1.0;
 	    _this.far = 1000.0;
@@ -6868,7 +6868,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  _createClass(Camera, [{
 	    key: 'updateProjection',
 	    value: function updateProjection() {
-	      _glMatrix.mat4.perspective(this.projectionMatrix, this.fov, this.viewportWidth / this.viewportHeight, this.near, this.far);
+	      _glMatrix.mat4.perspective(this.projMatrix, this.fov, this.viewportWidth / this.viewportHeight, this.near, this.far);
 	    }
 	  }, {
 	    key: 'updateMatrix',
@@ -6916,13 +6916,15 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	var Actor = function (_SceneObj) {
 	  _inherits(Actor, _SceneObj);
 	
-	  function Actor() {
+	  function Actor(init) {
 	    _classCallCheck(this, Actor);
 	
 	    var _this = _possibleConstructorReturn(this, (Actor.__proto__ || Object.getPrototypeOf(Actor)).call(this));
 	
 	    _this.pose = new _Pose2.default();
 	    _this.modelMatrix = _glMatrix.mat4.create();
+	    _this.material = init.material || null;
+	    _this.geometry = init.geometry || null;
 	    return _this;
 	  }
 	
@@ -6949,11 +6951,18 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	        _glMatrix.mat4.copy(this.modelMatrix, this.pose.matrix);
 	      }
 	    }
-	    // eslint-disable-next-line class-methods-use-this
-	
 	  }, {
 	    key: 'draw',
-	    value: function draw() /* camera */{}
+	    value: function draw(time, camera) {
+	      if (this.material && this.geometry) {
+	        this.geometry.draw(this.material, {
+	          time: time,
+	          modelMatrix: this.modelMatrix,
+	          viewMatrix: camera.viewMatrix,
+	          projMatrix: camera.projMatrix
+	        });
+	      }
+	    }
 	  }]);
 	
 	  return Actor;

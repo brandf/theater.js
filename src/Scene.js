@@ -15,14 +15,14 @@ export default class Scene extends SceneObj {
   }
   tick(time) {
     this.updateScene(time);
-    this.drawScene();
+    this.drawScene(time);
   }
   updateScene(time) {
     this.traverse('update', time);
   }
-  drawScene() {
+  drawScene(time) {
     if (this.camera) {
-      this.traverse('draw', this.camera);
+      this.traverse('draw', time, this.camera);
     }
   }
 }
