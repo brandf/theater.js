@@ -6923,8 +6923,8 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	
 	    _this.pose = new _Pose2.default();
 	    _this.modelMatrix = _glMatrix.mat4.create();
-	    _this.material = init.material || null;
-	    _this.geometry = init.geometry || null;
+	    _this.material = init && init.material || null;
+	    _this.geometry = init && init.geometry || null;
 	    return _this;
 	  }
 	
