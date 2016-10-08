@@ -7,8 +7,8 @@ export default class Actor extends SceneObj {
     super();
     this.pose = new Pose();
     this.modelMatrix = mat4.create();
-    this.material = init.material || null;
-    this.geometry = init.geometry || null;
+    this.material = (init && init.material) || null;
+    this.geometry = (init && init.geometry) || null;
   }
   update(time) {
     this.updateAnimations(time);
