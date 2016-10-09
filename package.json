@@ -1,6 +1,6 @@
 {
   "name": "theater.js",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A 3d scene graph.",
   "main": "dist/theater.js",
   "scripts": {
