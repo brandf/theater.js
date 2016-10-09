@@ -11,6 +11,7 @@ export default class Camera extends Actor {
     this.far = 1000.0;
     this.viewportWidth = 512;
     this.viewportHeight = 512;
+    this.updateProjection();
   }
   updateProjection() {
     mat4.perspective(this.projMatrix,
