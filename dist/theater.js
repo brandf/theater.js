@@ -6862,6 +6862,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    _this.far = 1000.0;
 	    _this.viewportWidth = 512;
 	    _this.viewportHeight = 512;
+	    _this.updateProjection();
 	    return _this;
 	  }
 	
