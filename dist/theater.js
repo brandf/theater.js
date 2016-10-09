@@ -6639,7 +6639,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	
 	    this.orientation = _glMatrix.quat.create();
 	    this.position = _glMatrix.vec3.create();
-	    this.scale = _glMatrix.vec3.create();
+	    this.scale = _glMatrix.vec3.fromValues(1.0, 1.0, 1.0);
 	    this.matrix = _glMatrix.mat4.create();
 	  }
 	
@@ -6657,7 +6657,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 	
@@ -6666,8 +6666,6 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _glMatrix = __webpack_require__(2);
 	
 	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 	
@@ -6680,7 +6678,6 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    this.scene = null;
 	    this.parent = null;
 	    this.children = null;
-	    this.modelMatrix = _glMatrix.mat4.create();
 	  }
 	
 	  _createClass(SceneObj, [{
@@ -6757,6 +6754,8 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	
 	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 	
+	var _glMatrix = __webpack_require__(2);
+	
 	var _SceneObj2 = __webpack_require__(13);
 	
 	var _SceneObj3 = _interopRequireDefault(_SceneObj2);
@@ -6782,6 +6781,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    var _this = _possibleConstructorReturn(this, (Scene.__proto__ || Object.getPrototypeOf(Scene)).call(this));
 	
 	    _this.camera = null;
+	    _this.modelMatrix = _glMatrix.mat4.create();
 	    return _this;
 	  }
 	

@@ -1,3 +1,4 @@
+import { mat4 } from 'gl-matrix';
 import SceneObj from './SceneObj';
 import Camera from './Camera';
 
@@ -5,6 +6,7 @@ export default class Scene extends SceneObj {
   constructor() {
     super();
     this.camera = null;
+    this.modelMatrix = mat4.create();
   }
   addChild(child) {
     super.addChild(child);

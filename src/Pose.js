@@ -4,7 +4,7 @@ export default class Pose {
   constructor() {
     this.orientation = quat.create();
     this.position = vec3.create();
-    this.scale = vec3.create();
+    this.scale = vec3.fromValues(1.0, 1.0, 1.0);
     this.matrix = mat4.create();
   }
   updateMatrix() {
