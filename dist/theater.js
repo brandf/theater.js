@@ -6974,6 +6974,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    value: function lookAt(x, y, z) {
 	      _glMatrix.mat4.lookAt(this.pose.matrix, this.pose.position, _glMatrix.vec3.fromValues(x, y, z), _glMatrix.vec3.fromValues(0, 1, 0));
 	      _glMatrix.mat4.getRotation(this.pose.orientation, this.pose.matrix);
+	      _glMatrix.quat.invert(this.pose.orientation, this.pose.orientation);
 	    }
 	  }]);
 	
