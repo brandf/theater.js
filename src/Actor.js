@@ -1,4 +1,4 @@
-import { mat4, vec3 } from 'gl-matrix';
+import { mat4, vec3, quat } from 'gl-matrix';
 import SceneObj from './SceneObj';
 import Pose from './Pose';
 
@@ -45,5 +45,6 @@ export default class Actor extends SceneObj {
                 vec3.fromValues(x, y, z),
                 vec3.fromValues(0, 1, 0));
     mat4.getRotation(this.pose.orientation, this.pose.matrix);
+    quat.invert(this.pose.orientation, this.pose.orientation);
   }
 }
