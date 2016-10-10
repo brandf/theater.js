@@ -1,4 +1,4 @@
-import { mat4 } from 'gl-matrix';
+import { mat4, vec3 } from 'gl-matrix';
 import SceneObj from './SceneObj';
 import Pose from './Pose';
 
@@ -35,5 +35,15 @@ export default class Actor extends SceneObj {
         projMatrix: camera.projMatrix,
       });
     }
+  }
+  moveTo(x, y, z) {
+    vec3.set(this.pose.position, x, y, z);
+  }
+  lookAt(x, y, z) {
+    mat4.lookAt(this.pose.matrix,
+                this.pose.position,
+                vec3.fromValues(x, y, z),
+                vec3.fromValues(0, 1, 0));
+    mat4.getRotation(this.pose.orientation, this.pose.matrix);
   }
 }
