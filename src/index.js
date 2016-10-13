@@ -1,14 +1,13 @@
 import { mat4, vec3, quat } from 'gl-matrix';
-import Pose from './Pose';
-import SceneObj from './SceneObj';
-import Scene from './Scene';
-import Camera from './Camera';
-import Actor from './Actor';
+import { } from './Actor';
+import { } from './Prop';
+import { } from './Stage';
+import { } from './Theater';
 
 export {
+  Theater,
+  Layer,
   Pose,
-  SceneObj,
-  Scene,
   Camera,
   Actor,
   mat4,
