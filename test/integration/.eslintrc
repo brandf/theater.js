@@ -1,0 +1,10 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "no-plusplus": "off",
+    "no-param-reassign": ["error", { "props": false }]
+  },
+  "env": {
+    "browser": true
+  }
+}
