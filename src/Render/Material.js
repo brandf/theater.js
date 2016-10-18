@@ -1,46 +1,77 @@
-import twgl from 'twgl.js';
 import DynamicUniforms from './DynamicUniforms';
+import WGLCodeGen from './WGLCodeGen';
 
 const allDynamicUniformNames = Object.keys(DynamicUniforms);
 
 export default class Material {
-  constructor(scene, vs, fs, constUniforms) {
-    this.gl = scene.gl;
-    this.programInfo = twgl.createProgramInfo(this.gl, [vs, fs]);
-    this.constUniforms = constUniforms || {};
-    this.allocateDynamicUniforms();
+  constructor(gl, vs, fs) {
+    this.gl = gl;
+    this.program = this.createProgram(vs, fs);
+    this.attribInfo = this.getAttributeInfo();
+    this.uniformInfo = this.getUniformInfo();
+    this.uniformStorage = this.createUniformStorage(this.uniformInfo);
+    this.setUniforms = WGLCodeGen.createUniformSetter(this.uniformInfo);
   }
-  allocateDynamicUniforms() {
-    this.dynamicUniforms = {};
-    this.dynamicUniformNames = Object.keys(this.programInfo.uniformSetters);
-    for (let i = 0; i < allDynamicUniformNames.length; ++i) {
-      const uniform = allDynamicUniformNames[i];
-      if ({}.hasOwnProperty.call(this.constUniforms, uniform)) {
-        // const uniforms override dynamic uniforms, so no need to compute it
-        delete this.dynamicUniformNames[uniform];
-      } else if (this.dynamicUniformNames.indexOf(uniform) >= 0) {
-        // allocate storage for the dynamic uniform
-        this.dynamicUniforms[uniform] = DynamicUniforms[uniform].allocate();
-      }
+  use(ctx) {
+    this.gl.useProgram(this.programInfo.shader);
+    this.computeDynamicUniforms(ctx);
+    this.setUniforms(this.gl, this.uniformStorage);
+  }
+  setUniforms(unifroms) {
+
+  }
+  computeDynamicUniforms(ctx) {
+
+  }
+  createProgram(vs, fs) {
+    const vertexShader = this.loadShader(vs, this.gl.VERTEX_SHADER);
+    const fragmentShader = this.loadShader(fs, this.gl.FRAGMENT_SHADER);
+    const program = this.gl.createProgram();
+    this.gl.attachShader(program, vertexShader);
+    this.gl.attachShader(program, fragmentShader);
+    this.gl.linkProgram(program);
+    if (!this.gl.getProgramParameter(this.program, this.gl.LINK_STATUS)) {
+      const error = this.gl.getProgramInfoLog(program);
+      this.gl.deleteProgram(program);
+      throw new Error(error);
     }
+    return program;
   }
-  setUniforms(materialInfo) {
-    this.computeDynamicUniforms(materialInfo);
-    const uniforms = {
-      ...this.dynamicUniforms,
-      ...this.constUniforms,
-    };
-    twgl.setUniforms(this.programInfo, uniforms);
-  }
-  computeDynamicUniforms(materialInfo) {
-    for (let i = 0; i < this.dynamicUniformNames.length; ++i) {
-      const uniform = this.dynamicUniformNames[i];
-      const currentValue = this.dynamicUniforms[uniform];
-      if (currentValue === undefined) {
-        throw new Error(`Unknown uniform: ${uniform}`);
-      }
-      this.dynamicUniforms[uniform] =
-        DynamicUniforms[uniform].compute(materialInfo, this.dynamicUniforms[uniform]);
+  loadShader(source, type) {
+    const shader = this.gl.createShader(type);
+    this.gl.shaderSource(shader, source);
+    this.gl.compileShader(shader);
+    if (!this.gl.getShaderParameter(shader, this.gl.COMPILE_STATUS)) {
+      const error = this.gl.getShaderInfoLog(shader);
+      this.gl.deleteShader(shader);
+      throw new Error(error);
     }
+    return shader;
+  }
+  getAttributeInfo() {
+    const activeAttribs = this.gl.getProgramParameter(this.program, this.gl.ACTIVE_UNIFORMS);
+    const attribs = {};
+    for (let i = 0; i < activeAttribs; ++i) {
+      const attrib = this.gl.getActiveAttrib(this.program, i);
+      attribs[attrib.name] = {
+        location: this.gl.getAttribLocation(program, attrib.name),
+        attrib.type,
+        attrib.size
+      };
+    }
+    return attribs;
+  }
+  getUniformInfo() {
+    const activeUniforms = this.gl.getProgramParameter(this.program, this.gl.ACTIVE_UNIFORMS);
+    const uniforms = {};
+    for (let i = 0; i < activeUniforms; ++i) {
+      const uniform = this.gl.getActiveUniform(this.program, i);
+      uniforms[uniform.name] = {
+        location: this.gl.getUniformLocation(program, uniformInfo.name),
+        uniform.type,
+        uniform.size
+      };
+    }
+    return uniforms;
   }
 }

@@ -1,6 +1,6 @@
 import { mat4, vec3, quat } from 'gl-matrix';
 import ActorFlags from './ActorFlags';
-import Pose from './Pose';
+import Pose from '../Math/Pose';
 
 const InternalActorFlags = {
   ENTERED: 1,

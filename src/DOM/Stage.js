@@ -15,12 +15,6 @@ export default class Stage extends Actor {
     }
     this.enter();
   }
-  addedActor() {
-    this.needsRebuild = true;
-  }
-  removedActor() {
-    this.needsRebuild = true;
-  }
   rebuild() {
     // reset lists
     for (let i = 0; i < this.actorFlags.length; ++i) {

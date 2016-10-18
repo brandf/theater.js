@@ -1,9 +1,9 @@
-import twgl from 'twgl.js';
 import IndexBuffer from './IndexBuffer';
+import PrimitiveType from './PrimitiveType';
 
 export default class Drawable {
-  constructor(theater, material, vertexBuffer, indexBufferOrPrimitiveType) {
-    this.theater = theater;
+  constructor(gl, material, vertexBuffer, indexBufferOrPrimitiveType) {
+    this.gl = gl;
     this.material = material;
     this.vertexBuffer = vertexBuffer;
     this.indexBuffer = indexBufferOrPrimitiveType instanceof IndexBuffer ?
@@ -14,9 +14,20 @@ export default class Drawable {
                         indexBufferOrPrimitiveType;
   }
   draw(ctx) {
-    this.gl.useProgram(this.material.programInfo.program);
-    twgl.setBuffersAndAttributes(this.gl, this.material.programInfo, this.bufferInfo);
-    this.material.setUniforms(ctx);
-    twgl.drawBufferInfo(this.gl, this.bufferType, this.bufferInfo);
+    this.material.use(ctx);
+    this.vertexBuffer.use(this.material.attribLocations);
+    if (this.indexBuffer) {
+      this.indexBuffer.use();
+    }
+    const primitiveType = this.primitiveType === PrimitiveType.LINES ?
+                            this.gl.LINES :
+                            this.gl.TRIANGLES;
+    if (this.indexBuffer) {
+      const count = this.indexBuffer.numPrimitives *
+                    this.primitiveType === PrimitiveType.LINES ? 2 : 3;
+      this.gl.drawElements(primitiveType, count, this.gl.UNSIGNED_SHORT, 0);
+    } else {
+      this.gl.drawArrays(primitiveType, 0, this.vertexBuffer.numVertices);
+    }
   }
 }
