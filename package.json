@@ -4,9 +4,12 @@
   "description": "A 3d scene graph.",
   "main": "dist/theater.js",
   "scripts": {
-    "build": "webpack --progress --colors",
-    "build_opt": "webpack --progress --colors --optimize-minimize",
-    "publish": "npm run build_opt"
+    "copy": "cp ./dist/* ./integration/node_modules/theater.js/dist -v",
+    "build": "./node_modules/.bin/webpack --progress --colors && npm run copy",
+    "build_opt": "./node_modules/.bin/webpack --progress --colors --optimize-minimize && npm run copy",
+    "publish": "npm run build_opt",
+    "test": "mocha './src/**/*.test.js' --require babel-register --reporter spec",
+    "cover": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha './src/**/*.test.js' --require babel-register --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,8 @@
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-object-rest-spread": "^6.16.0",
     "babel-preset-latest": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "chai": "^3.5.0",
     "eslint": "^3.7.1",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-loader": "^1.5.0",

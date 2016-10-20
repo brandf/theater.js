@@ -3,10 +3,10 @@
   "version": "0.1.13",
   "description": "Integration testing of theater.js",
   "scripts": {
-    "build": "webpack --progress --colors",
-    "build_opt": "webpack --progress --colors --optimize-minimize",
+    "build": "./node_modules/.bin/webpack --progress --colors",
+    "build_opt": "./node_modules/.bin/webpack --progress --colors --optimize-minimize",
     "publish": "npm run build_opt",
-    "start": "webpack-dev-server --inline --hot --progress --colors --open"
+    "start": "./node_modules/.bin/webpack-dev-server --inline --hot --progress --colors --open"
   },
   "repository": {
     "type": "git",
