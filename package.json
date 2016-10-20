@@ -5,7 +5,8 @@
   "main": "dist/theater.js",
   "scripts": {
     "build": "webpack --progress --colors",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build_opt": "webpack --progress --colors --optimize-minimize",
+    "publish": "npm run build_opt"
   },
   "repository": {
     "type": "git",
@@ -34,7 +35,6 @@
     "webpack": "^1.13.2"
   },
   "dependencies": {
-    "gl-matrix": "^2.3.2",
-    "twgl.js": "^1.9.0"
+    "gl-matrix": "^2.3.2"
   }
 }

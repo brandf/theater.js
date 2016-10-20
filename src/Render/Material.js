@@ -1,7 +1,6 @@
-import DynamicUniforms from './DynamicUniforms';
-import WGLCodeGen from './WGLCodeGen';
+// import DynamicUniforms from './DynamicUniforms';
 
-const allDynamicUniformNames = Object.keys(DynamicUniforms);
+// const allDynamicUniformNames = Object.keys(DynamicUniforms);
 
 export default class Material {
   constructor(gl, vs, fs) {
@@ -10,17 +9,19 @@ export default class Material {
     this.attribInfo = this.getAttributeInfo();
     this.uniformInfo = this.getUniformInfo();
     this.uniformStorage = this.createUniformStorage(this.uniformInfo);
-    this.setUniforms = WGLCodeGen.createUniformSetter(this.uniformInfo);
+    // this.setUniforms = WGLCodeGen.createUniformSetter(this.uniformInfo);
   }
   use(ctx) {
     this.gl.useProgram(this.programInfo.shader);
     this.computeDynamicUniforms(ctx);
     this.setUniforms(this.gl, this.uniformStorage);
   }
-  setUniforms(unifroms) {
+  // eslint-disable-next-line class-methods-use-this
+  setUniforms(/* unifroms */) {
 
   }
-  computeDynamicUniforms(ctx) {
+  // eslint-disable-next-line class-methods-use-this
+  computeDynamicUniforms(/* ctx */) {
 
   }
   createProgram(vs, fs) {
@@ -54,9 +55,9 @@ export default class Material {
     for (let i = 0; i < activeAttribs; ++i) {
       const attrib = this.gl.getActiveAttrib(this.program, i);
       attribs[attrib.name] = {
-        location: this.gl.getAttribLocation(program, attrib.name),
-        attrib.type,
-        attrib.size
+        location: this.gl.getAttribLocation(this.program, attrib.name),
+        type: attrib.type,
+        size: attrib.size,
       };
     }
     return attribs;
@@ -67,9 +68,9 @@ export default class Material {
     for (let i = 0; i < activeUniforms; ++i) {
       const uniform = this.gl.getActiveUniform(this.program, i);
       uniforms[uniform.name] = {
-        location: this.gl.getUniformLocation(program, uniformInfo.name),
-        uniform.type,
-        uniform.size
+        location: this.gl.getUniformLocation(this.program, uniform.name),
+        type: uniform.type,
+        size: uniform.size,
       };
     }
     return uniforms;

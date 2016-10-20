@@ -1,3 +1,4 @@
 # Dependency directories
 node_modules
+integration/node_modules
 *.log

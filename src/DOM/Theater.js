@@ -1,5 +1,3 @@
-import twgl from 'twgl.js';
-
 export default class Theater {
   constructor(canvas) {
     this.layers = [];
@@ -22,17 +20,23 @@ export default class Theater {
     }
   }
   initWGL(canvas) {
+    return canvas || this;
+    /*
     twgl.setDefaults({ attribPrefix: 'a_' });
     const gl = twgl.getWebGLContext(canvas);
     this.gl = gl;
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.enable(gl.DEPTH_TEST);
+    */
   }
   resetState() {
+    return this;
+    /*
     const gl = this.gl;
     twgl.resizeCanvasToDisplaySize(gl.canvas);
     gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
     // eslint-disable-next-line no-bitwise
     gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    */
   }
 }
