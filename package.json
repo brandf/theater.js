@@ -5,11 +5,10 @@
   "main": "dist/theater.js",
   "scripts": {
     "copy": "cp ./dist/* ./integration/node_modules/theater.js/dist -v",
-    "build": "./node_modules/.bin/webpack --progress --colors && npm run copy",
-    "build_opt": "./node_modules/.bin/webpack --progress --colors --optimize-minimize && npm run copy",
+    "build": "webpack --progress --colors && npm run copy",
+    "build_opt": "webpack --progress --colors --optimize-minimize && npm run copy",
     "publish": "npm run build_opt",
-    "test": "mocha './src/**/*.test.js' --require babel-register --reporter spec",
-    "cover": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha './src/**/*.test.js' --require babel-register --reporter spec"
+    "test": "mocha \"./src/**/*.spec.js\" --require babel-register --reporter spec"
   },
   "repository": {
     "type": "git",
