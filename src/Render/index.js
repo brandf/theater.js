@@ -1,4 +1,4 @@
-export { Drawable } from './Drawable';
+export { Renderable } from './Renderable';
 export { DynamicUniforms } from './DynamicUniforms';
 export { IndexBuffer } from './IndexBuffer';
 export { Material } from './Material';
