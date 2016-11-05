@@ -9,7 +9,7 @@ export default class Model {
   constructor(init) {
     this.flags = 0;
     this.internalFlags = 0;
-    this.stage = null;
+    this.scene = null;
     this.parent = null;
     this.children = null;
     this.pose = new Pose();
@@ -30,15 +30,15 @@ export default class Model {
   enableFlag(flag) {
     // eslint-disable-next-line no-bitwise
     this.flags |= flag;
-    if (this.stage) {
-      this.stage.needsRebuild = true;
+    if (this.scene) {
+      this.scene.needsRebuild = true;
     }
   }
   disableFlag(flag) {
     // eslint-disable-next-line no-bitwise
     this.flags &= ~flag;
-    if (this.stage) {
-      this.stage.needsRebuild = true;
+    if (this.scene) {
+      this.scene.needsRebuild = true;
     }
   }
   hasInternalFlag(flag) {
@@ -59,7 +59,7 @@ export default class Model {
   }
   addChild(child) {
     if (child.parent !== null) { throw new Error('child already parented'); }
-    child.stage = this.stage;
+    child.scene = this.scene;
     child.parent = this;
     this.children = this.children || [];
     this.children.push(child);
@@ -69,7 +69,7 @@ export default class Model {
   }
   removeChild(child) {
     if (child.parent !== this) { throw new Error('not yo babies momma'); }
-    child.stage = null;
+    child.scene = null;
     child.parent = null;
     const index = this.children.indexOf(child);
     if (index >= 0) {
@@ -144,17 +144,19 @@ export default class Model {
     }
     this.removeCompleteBehaviors();
   }
-  draw(ctx) {
+  render(ctx) {
     if (this.drawable) {
       ctx.modelMatrix = this.modelMatrix;
-      this.drawable.draw(ctx);
+      this.drawable.render(ctx);
     }
   }
   setPose(pose) {
     pose.copyTo(this.pose);
+    return this;
   }
   moveTo(x, y, z) {
     Vector3.set(this.pose.position, x, y, z);
+    return this;
   }
   lookAt(x, y, z) {
     Matrix4.lookAt(this.pose.matrix,
@@ -163,5 +165,6 @@ export default class Model {
                 Vector3.fromValues(0, 1, 0));
     Matrix4.getRotation(this.pose.orientation, this.pose.matrix);
     Quaternion.invert(this.pose.orientation, this.pose.orientation);
+    return this;
   }
 }

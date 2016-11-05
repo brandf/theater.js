@@ -1,7 +1,7 @@
 import IndexBuffer from './IndexBuffer';
 import PrimitiveType from './PrimitiveType';
 
-export default class Drawable {
+export default class Renderable {
   constructor(gl, material, vertexBuffer, indexBufferOrPrimitiveType) {
     this.gl = gl;
     this.material = material;
@@ -13,7 +13,7 @@ export default class Drawable {
                         this.indexBuffer.type :
                         indexBufferOrPrimitiveType;
   }
-  draw(ctx) {
+  render(ctx) {
     this.material.use(ctx);
     this.vertexBuffer.use(this.material.attribLocations);
     if (this.indexBuffer) {

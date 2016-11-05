@@ -4,9 +4,10 @@ import ModelFlags from '../ModelFlags';
 
 export default class Camera extends Model {
   constructor(init) {
+    init = init || {};
     super();
-    this.viewportWidth = (init && init.viewportWidth) || 512;
-    this.viewportHeight = (init && init.viewportHeight) || 512;
+    this.viewportWidth = init.viewportWidth || 512;
+    this.viewportHeight = init.viewportHeight || 512;
     this.setFlag(ModelFlags.CAMERA);
     this.viewMatrix = Matrix.create();
     this.projMatrix = Matrix.create();

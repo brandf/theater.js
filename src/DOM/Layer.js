@@ -1,9 +1,10 @@
-import Model from './Model';
+import Scene from './Scene';
 import PerspectiveCamera from './Cameras/PerspectiveCamera';
 
 export default class Layer {
   constructor(init) {
-    this.stage = init.stage || new Model();
+    init = init || {};
+    this.scene = init.scene || new Scene();
     this.camera = init.camera || new PerspectiveCamera();
     this.viewport = init.viewport;
     this.clearColor = init.clearColor || { r: 0, g: 0, b: 0 };
@@ -11,13 +12,13 @@ export default class Layer {
     this.target = init.target;
   }
   update(time, frame) {
-    // only update stages once per frame
-    if (this.stage.lastFrame < frame) {
-      this.state.lastFrame = frame;
-      this.stage.update(time);
+    // only update scenes once per frame
+    if (this.scenes.lastFrame < frame) {
+      this.scenes.lastFrame = frame;
+      this.scenes.update(time);
     }
   }
-  draw(theater, time) {
+  render(theater, time) {
     if (this.viewport) {
       theater.gl.viewport(this.viewport.x,
                           this.viewport.y,
@@ -49,6 +50,6 @@ export default class Layer {
     };
 
     // TODO deal with render targets
-    this.stage.draw(ctx);
+    this.scene.render(ctx);
   }
 }

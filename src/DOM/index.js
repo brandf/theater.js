@@ -4,5 +4,5 @@ export { Model } from './Model';
 export { ModelFlags } from './ModelFlags';
 export { Behavior } from './Behavior';
 export { Layer } from './Layer';
-export { Stage } from './Stage';
+export { Scene } from './Scene';
 export { Theater } from './Theater';

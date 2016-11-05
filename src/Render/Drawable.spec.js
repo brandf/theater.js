@@ -1,6 +1,6 @@
 import chai from 'chai';
-import Drawable from './Drawable';
+import Renderable from './Renderable';
 
-describe('Render/Drawable', () => {
+describe('Rendering/Renderable', () => {
   it('TODO');
 });

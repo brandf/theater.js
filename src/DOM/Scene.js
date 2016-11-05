@@ -1,10 +1,10 @@
 import Model from './Model';
 import ModelFlags from './ModelFlags';
 
-export default class Stage extends Model {
+export default class Scene extends Model {
   constructor() {
     super();
-    this.stage = this;
+    this.scene = this;
     this.needsRebuild = false;
     this.lastFrame = 0;
     this.modelFlagKeys = Object.keys(ModelFlags);
@@ -56,11 +56,11 @@ export default class Stage extends Model {
       list[i].postUpdate(time);
     }
   }
-  draw(ctx) {
+  render(ctx) {
     const list = this.modelFlagLists.DRAW;
     const len = list.len;
     for (let i = 0; i < len; ++i) {
-      list[i].draw(ctx);
+      list[i].render(ctx);
     }
   }
 }
