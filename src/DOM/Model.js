@@ -1,12 +1,12 @@
 import { mat4, vec3, quat } from 'gl-matrix';
-import ActorFlags from './ActorFlags';
+import ModelFlags from './ModelFlags';
 import Pose from '../Math/Pose';
 
-const InternalActorFlags = {
+const InternalModelFlags = {
   ENTERED: 1,
 };
 
-export default class Actor {
+export default class Model {
   constructor(init) {
     this.flags = 0;
     this.internalFlags = 0;
@@ -21,7 +21,7 @@ export default class Actor {
       this.setDrawable(init.drawable);
     }
     if (this.behaviors && this.behaviors.length > 0) {
-      this.enableFlag(ActorFlags.UPDATE);
+      this.enableFlag(ModelFlags.UPDATE);
     }
   }
   hasFlag(flag) {
@@ -56,7 +56,7 @@ export default class Actor {
   }
   setDrawable(drawable) {
     this.drawable = drawable;
-    this.enableFlag(ActorFlags.DRAW);
+    this.enableFlag(ModelFlags.DRAW);
   }
   addChild(child) {
     if (child.parent !== null) { throw new Error('child already parented'); }
@@ -64,8 +64,8 @@ export default class Actor {
     child.parent = this;
     this.children = this.children || [];
     this.children.push(child);
-    if (this.hasInternalFlag(InternalActorFlags.ENTERED)) {
-      child.traverse(actor => actor.enter());
+    if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
+      child.traverse(model => model.enter());
     }
   }
   removeChild(child) {
@@ -76,8 +76,8 @@ export default class Actor {
     if (index >= 0) {
       this.children.splice(index, 1);
     }
-    if (this.hasInternalFlag(InternalActorFlags.ENTERED)) {
-      child.traverse(actor => actor.exit());
+    if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
+      child.traverse(model => model.exit());
     }
   }
   removeCompleteBehaviors() {
@@ -88,10 +88,10 @@ export default class Actor {
     }
   }
   enter() {
-    if (this.hasInternalFlag(InternalActorFlags.ENTERED)) {
+    if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
       throw new Error('invalid entered state');
     }
-    this.enableInternalFlag(InternalActorFlags.ENTERED);
+    this.enableInternalFlag(InternalModelFlags.ENTERED);
     if (this.behaviors) {
       for (let i = 0; i < this.behaviors.length; ++i) {
         this.behaviors[i].enter(this);
@@ -100,7 +100,7 @@ export default class Actor {
     }
   }
   exit() {
-    if (!this.hasInternalFlag(InternalActorFlags.ENTERED)) {
+    if (!this.hasInternalFlag(InternalModelFlags.ENTERED)) {
       throw new Error('invalid entered state');
     }
     if (this.behaviors) {
@@ -109,7 +109,7 @@ export default class Actor {
       }
       this.removeCompleteBehaviors();
     }
-    this.disableInternalFlag(InternalActorFlags.ENTERED);
+    this.disableInternalFlag(InternalModelFlags.ENTERED);
   }
   traverse(callback) {
     const stack = [this];

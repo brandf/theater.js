@@ -1,9 +1,9 @@
 module.exports = {
   entry: [
-    './integration/src/app.js',
+    './src/app.js',
   ],
   output: {
-    path: './integration/bin/',
+    path: './bin/',
     publicPath: '/bin/',
     filename: 'bundle.js',
     sourceMapFilename: '[file].map',
@@ -18,7 +18,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: ['./node_modules/', './dist/'],
+        exclude: /node_modules/,
         loaders: ['babel', 'eslint'],
       },
       {

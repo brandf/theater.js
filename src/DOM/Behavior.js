@@ -4,29 +4,29 @@ export default class Behavior {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  attach(/* actor */) {
+  attach(/* model */) {
 
   }
 
   // eslint-disable-next-line class-methods-use-this
-  detach(/* actor */) {
+  detach(/* model */) {
 
   }
 
   // eslint-disable-next-line class-methods-use-this
-  enter(/* actor */) {
+  enter(/* model */) {
 
   }
   // eslint-disable-next-line class-methods-use-this
-  exit(/* actor */) {
+  exit(/* model */) {
 
   }
   // eslint-disable-next-line class-methods-use-this
-  preUpdate(/* actor, time */) {
+  preUpdate(/* model, time */) {
 
   }
   // eslint-disable-next-line class-methods-use-this
-  postUpdate(/* actor, time */) {
+  postUpdate(/* model, time */) {
 
   }
 }

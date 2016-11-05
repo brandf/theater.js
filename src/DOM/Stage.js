@@ -1,31 +1,31 @@
-import Actor from './Actor';
-import ActorFlags from './ActorFlags';
+import Model from './Model';
+import ModelFlags from './ModelFlags';
 
-export default class Stage extends Actor {
+export default class Stage extends Model {
   constructor() {
     super();
     this.stage = this;
     this.needsRebuild = false;
     this.lastFrame = 0;
-    this.actorFlagKeys = Object.keys(ActorFlags);
-    this.actorFlags = this.actorFlagKeys.map(k => ActorFlags[k]);
-    this.actorFlagLists = {};
-    for (let i = 0; i < this.actorFlags.length; ++i) {
-      this.actorFlagLists[this.actorFlagKeys[i]] = [];
+    this.modelFlagKeys = Object.keys(ModelFlags);
+    this.modelFlags = this.modelFlagKeys.map(k => ModelFlags[k]);
+    this.modelFlagLists = {};
+    for (let i = 0; i < this.modelFlags.length; ++i) {
+      this.modelFlagLists[this.modelFlagKeys[i]] = [];
     }
     this.enter();
   }
   rebuild() {
     // reset lists
-    for (let i = 0; i < this.actorFlags.length; ++i) {
-      this.actorFlagLists[this.actorFlagKeys[i]].length = 0;
+    for (let i = 0; i < this.modelFlags.length; ++i) {
+      this.modelFlagLists[this.modelFlagKeys[i]].length = 0;
     }
 
     // traverse the tree to rebuild lists
-    this.traverse((actor) => {
-      for (let i = 0; i < this.actorFlagKeys.length; ++i) {
-        if (actor.hasFlag(this.actorFlags[i])) {
-          this.actorFlagLists[this.actorFlagKeys[i]].push(actor);
+    this.traverse((model) => {
+      for (let i = 0; i < this.modelFlagKeys.length; ++i) {
+        if (model.hasFlag(this.modelFlags[i])) {
+          this.modelFlagLists[this.modelFlagKeys[i]].push(model);
         }
       }
     });
@@ -35,29 +35,29 @@ export default class Stage extends Actor {
       this.rebuild();
     }
     let i;
-    let list = this.actorFlagLists.PRE_UPDATE;
+    let list = this.modelFlagLists.PRE_UPDATE;
     let len = list.len;
     for (i = 0; i < len; ++i) {
       list[i].preUpdate(time);
     }
-    list = this.actorFlagLists.MATRIX_UPDATE;
+    list = this.modelFlagLists.MATRIX_UPDATE;
     len = list.len;
     for (i = 0; i < len; ++i) {
       list[i].updateMatrix(time);
     }
-    list = this.actorFlagLists.CAMERA;
+    list = this.modelFlagLists.CAMERA;
     len = list.len;
     for (i = 0; i < len; ++i) {
       list[i].updateView();
     }
-    list = this.actorFlagLists.POST_UPDATE;
+    list = this.modelFlagLists.POST_UPDATE;
     len = list.len;
     for (i = 0; i < len; ++i) {
       list[i].postUpdate(time);
     }
   }
   draw(ctx) {
-    const list = this.actorFlagLists.DRAW;
+    const list = this.modelFlagLists.DRAW;
     const len = list.len;
     for (let i = 0; i < len; ++i) {
       list[i].draw(ctx);

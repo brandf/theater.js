@@ -5,8 +5,8 @@ import PerspectiveCamera from './DOM/Camera/PerspectiveCamera';
 import DirectionalLight from './DOM/Light/DirectionalLight';
 import PointLight from './DOM/Light/PointLight';
 import SpotLight from './DOM/Light/SpotLight';
-import Actor from './DOM/Actor';
-import ActorFlags from './DOM/ActorFlags';
+import Model from './DOM/Model';
+import ModelFlags from './DOM/ModelFlags';
 import Behavior from './DOM/Behavior';
 import Layer from './DOM/Layer';
 import Stage from './DOM/Stage';
@@ -29,8 +29,8 @@ export {
   DirectionalLight,
   PointLight,
   SpotLight,
-  Actor,
-  ActorFlags,
+  Model,
+  ModelFlags,
   Behavior,
   Layer,
   Stage,

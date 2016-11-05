@@ -1,13 +1,13 @@
 import { mat4 } from 'gl-matrix';
-import Actor from '../Actor';
-import ActorFlags from '../ActorFlags';
+import Model from '../Model';
+import ModelFlags from '../ModelFlags';
 
-export default class Camera extends Actor {
+export default class Camera extends Model {
   constructor(init) {
     super();
     this.viewportWidth = (init && init.viewportWidth) || 512;
     this.viewportHeight = (init && init.viewportHeight) || 512;
-    this.setFlag(ActorFlags.CAMERA);
+    this.setFlag(ModelFlags.CAMERA);
     this.viewMatrix = mat4.create();
     this.projMatrix = mat4.create();
   }

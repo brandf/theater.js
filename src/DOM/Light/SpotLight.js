@@ -1,9 +1,9 @@
 import PerspectiveCamera from '../Camera/PerspectiveCamera';
-import ActorFlags from '../ActorFlags';
+import ModelFlags from '../ModelFlags';
 
 export default class SpotLight extends PerspectiveCamera {
   constructor(init) {
     super(init);
-    this.setFlag(ActorFlags.LIGHT);
+    this.setFlag(ModelFlags.LIGHT);
   }
 }
