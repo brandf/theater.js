@@ -2,7 +2,7 @@ export default {
   PRE_UPDATE: 1,
   MATRIX_UPDATE: 2,
   POST_UPDATE: 4,
-  DRAW: 8,
+  RENDER: 8,
   CAMERA: 16,
   LIGHT: 32,
   SHADOW_CASTER: 64,

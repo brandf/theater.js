@@ -1,5 +1,7 @@
 export { Animation } from './Animation';
-export { DOM } from './DOM';
 export { Math } from './Math';
-export { Render } from './Render';
+export { Rendering } from './Rendering';
 export { Resources } from './Resources';
+export { Scene } from './Scene';
+export { RenderPass } from '.RenderPass';
+export { Engine } from '.Engine';

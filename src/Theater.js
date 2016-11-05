@@ -1,7 +1,7 @@
 export default class Theater {
   constructor(canvas) {
     this.gl = canvas.getContext(canvas);
-    this.layers = [];
+    this.renderPasses = [];
     this.frameCallback = this.frame.bind(this);
     this.frame = 0;
     this.requestAnimationFrame = window.requestAnimationFrame.bind(window);
@@ -9,11 +9,11 @@ export default class Theater {
   }
   frame(time) {
     this.frame++;
-    for (let i = 0; i < this.layers.length; i++) {
-      this.layers[i].update(time, this.frame);
+    for (let i = 0; i < this.renderPasses.length; i++) {
+      this.renderPasses[i].update(time, this.frame);
     }
-    for (let i = 0; i < this.layers.length; i++) {
-      this.layers[i].render(this, time);
+    for (let i = 0; i < this.renderPasses.length; i++) {
+      this.renderPasses[i].render(this, time);
     }
     if (this.continuous) {
       this.requestAnimationFrame(this.frameCallback);

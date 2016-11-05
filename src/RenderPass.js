@@ -1,7 +1,7 @@
-import Scene from './Scene';
-import PerspectiveCamera from './Cameras/PerspectiveCamera';
+import { Scene } from './Scene';
+import PerspectiveCamera from './Scene/Cameras/PerspectiveCamera';
 
-export default class Layer {
+export default class RenderPass {
   constructor(init) {
     init = init || {};
     this.scene = init.scene || new Scene();
@@ -12,10 +12,10 @@ export default class Layer {
     this.target = init.target;
   }
   update(time, frame) {
-    // only update scenes once per frame
-    if (this.scenes.lastFrame < frame) {
-      this.scenes.lastFrame = frame;
-      this.scenes.update(time);
+    // only update scene once per frame
+    if (this.scene.lastFrame < frame) {
+      this.scene.lastFrame = frame;
+      this.scene.update(time);
     }
   }
   render(theater, time) {

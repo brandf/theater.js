@@ -1,6 +1,6 @@
 import chai from 'chai';
 import SpotLight from './SpotLight';
 
-describe('DOM/Light/SpotLight', () => {
+describe('Scene/Lights/SpotLight', () => {
   it('TODO');
 });

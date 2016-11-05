@@ -1,6 +1,6 @@
 import chai from 'chai';
 import Behavior from './Behavior';
 
-describe('DOM/Behavior', () => {
+describe('Scene/Behavior', () => {
   it('TODO');
 });

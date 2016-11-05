@@ -1,6 +1,6 @@
 import chai from 'chai';
 import PerspectiveCamera from './PerspectiveCamera';
 
-describe('DOM/Camera/PerspectiveCamera', () => {
+describe('Scene/Cameras/PerspectiveCamera', () => {
   it('TODO');
 });

@@ -1,6 +1,6 @@
 import chai from 'chai';
 import Scene from './Scene';
 
-describe('DOM/Scene', () => {
+describe('Scene/Scene', () => {
   it('TODO');
 });
