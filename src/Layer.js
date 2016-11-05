@@ -1,7 +1,7 @@
 import { Scene } from './Scene';
 import PerspectiveCamera from './Scene/Cameras/PerspectiveCamera';
 
-export default class RenderPass {
+export default class Layer {
   constructor(init) {
     init = init || {};
     this.scene = init.scene || new Scene();

@@ -1,4 +1,4 @@
-export default class Theater {
+export default class Engine {
   constructor(canvas) {
     this.gl = canvas.getContext(canvas);
     this.renderPasses = [];

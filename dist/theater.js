@@ -57,16 +57,25 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _DOM = __webpack_require__(2);
+	var _Animation = __webpack_require__(2);
 	
-	Object.defineProperty(exports, 'DOM', {
+	Object.defineProperty(exports, 'Animation', {
 	  enumerable: true,
 	  get: function get() {
-	    return _DOM.DOM;
+	    return _Animation.Animation;
 	  }
 	});
 	
-	var _Math = __webpack_require__(5);
+	var _Input = __webpack_require__(4);
+	
+	Object.defineProperty(exports, 'Input', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Input.Input;
+	  }
+	});
+	
+	var _Math = __webpack_require__(6);
 	
 	Object.defineProperty(exports, 'Math', {
 	  enumerable: true,
@@ -75,21 +84,48 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 	
-	var _Render = __webpack_require__(29);
+	var _Rendering = __webpack_require__(18);
 	
-	Object.defineProperty(exports, 'Render', {
+	Object.defineProperty(exports, 'Rendering', {
 	  enumerable: true,
 	  get: function get() {
-	    return _Render.Render;
+	    return _Rendering.Rendering;
 	  }
 	});
 	
-	var _Resources = __webpack_require__(36);
+	var _Resources = __webpack_require__(25);
 	
 	Object.defineProperty(exports, 'Resources', {
 	  enumerable: true,
 	  get: function get() {
 	    return _Resources.Resources;
+	  }
+	});
+	
+	var _Scene = __webpack_require__(27);
+	
+	Object.defineProperty(exports, 'Scene', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Scene.Scene;
+	  }
+	});
+	
+	var _Engine = __webpack_require__(41);
+	
+	Object.defineProperty(exports, 'Engine', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Engine.Engine;
+	  }
+	});
+	
+	var _Layer = __webpack_require__(42);
+	
+	Object.defineProperty(exports, 'Layer', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Layer.Layer;
 	  }
 	});
 
@@ -103,114 +139,32 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _Cameras = __webpack_require__(3);
+	var _Clock = __webpack_require__(3);
 	
-	Object.defineProperty(exports, 'Cameras', {
+	Object.defineProperty(exports, 'Clock', {
 	  enumerable: true,
 	  get: function get() {
-	    return _Cameras.Cameras;
-	  }
-	});
-	
-	var _Lights = __webpack_require__(21);
-	
-	Object.defineProperty(exports, 'Lights', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Lights.Lights;
-	  }
-	});
-	
-	var _Model = __webpack_require__(17);
-	
-	Object.defineProperty(exports, 'Model', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Model.Model;
-	  }
-	});
-	
-	var _ModelFlags = __webpack_require__(18);
-	
-	Object.defineProperty(exports, 'ModelFlags', {
-	  enumerable: true,
-	  get: function get() {
-	    return _ModelFlags.ModelFlags;
-	  }
-	});
-	
-	var _Behavior = __webpack_require__(25);
-	
-	Object.defineProperty(exports, 'Behavior', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Behavior.Behavior;
-	  }
-	});
-	
-	var _Layer = __webpack_require__(26);
-	
-	Object.defineProperty(exports, 'Layer', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Layer.Layer;
-	  }
-	});
-	
-	var _Stage = __webpack_require__(27);
-	
-	Object.defineProperty(exports, 'Stage', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Stage.Stage;
-	  }
-	});
-	
-	var _Theater = __webpack_require__(28);
-	
-	Object.defineProperty(exports, 'Theater', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Theater.Theater;
+	    return _Clock.Clock;
 	  }
 	});
 
 /***/ },
 /* 3 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	'use strict';
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
 	
-	var _Camera = __webpack_require__(4);
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	Object.defineProperty(exports, 'Camera', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Camera.Camera;
-	  }
-	});
+	var Clock = function Clock() {
+	  _classCallCheck(this, Clock);
+	};
 	
-	var _OrthoCamera = __webpack_require__(19);
-	
-	Object.defineProperty(exports, 'OrthoCamera', {
-	  enumerable: true,
-	  get: function get() {
-	    return _OrthoCamera.OrthoCamera;
-	  }
-	});
-	
-	var _PerspectiveCamera = __webpack_require__(20);
-	
-	Object.defineProperty(exports, 'PerspectiveCamera', {
-	  enumerable: true,
-	  get: function get() {
-	    return _PerspectiveCamera.PerspectiveCamera;
-	  }
-	});
+	exports.default = Clock;
 
 /***/ },
 /* 4 */
@@ -222,72 +176,35 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _PointerDevice = __webpack_require__(5);
 	
-	var _Math = __webpack_require__(5);
-	
-	var _Model2 = __webpack_require__(17);
-	
-	var _Model3 = _interopRequireDefault(_Model2);
-	
-	var _ModelFlags = __webpack_require__(18);
-	
-	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Camera = function (_Model) {
-	  _inherits(Camera, _Model);
-	
-	  function Camera(init) {
-	    _classCallCheck(this, Camera);
-	
-	    var _this = _possibleConstructorReturn(this, (Camera.__proto__ || Object.getPrototypeOf(Camera)).call(this));
-	
-	    _this.viewportWidth = init && init.viewportWidth || 512;
-	    _this.viewportHeight = init && init.viewportHeight || 512;
-	    _this.setFlag(_ModelFlags2.default.CAMERA);
-	    _this.viewMatrix = _Math.Matrix.create();
-	    _this.projMatrix = _Math.Matrix.create();
-	    return _this;
+	Object.defineProperty(exports, 'PointerDevice', {
+	  enumerable: true,
+	  get: function get() {
+	    return _PointerDevice.PointerDevice;
 	  }
-	  // eslint-disable-next-line class-methods-use-this
-	
-	
-	  _createClass(Camera, [{
-	    key: 'updateProjection',
-	    value: function updateProjection() {}
-	  }, {
-	    key: 'updateView',
-	    value: function updateView() {
-	      _Math.Matrix.invert(this.viewMatrix, this.modelMatrix);
-	    }
-	  }, {
-	    key: 'updateViewport',
-	    value: function updateViewport(width, height) {
-	      var oldWidth = this.viewportWidth;
-	      var oldHeight = this.viewportHeight;
-	      this.viewportWidth = width;
-	      this.viewportHeight = height;
-	      if (oldWidth !== width || oldHeight !== height) {
-	        this.updateProjection();
-	      }
-	    }
-	  }]);
-	
-	  return Camera;
-	}(_Model3.default);
-	
-	exports.default = Camera;
+	});
 
 /***/ },
 /* 5 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var PointerDevice = function PointerDevice() {
+	  _classCallCheck(this, PointerDevice);
+	};
+	
+	exports.default = PointerDevice;
+
+/***/ },
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -296,7 +213,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _glMatrix = __webpack_require__(6);
+	var _glMatrix = __webpack_require__(7);
 	
 	Object.defineProperty(exports, 'Matrix', {
 	  enumerable: true,
@@ -317,7 +234,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  }
 	});
 	
-	var _Pose = __webpack_require__(16);
+	var _Pose = __webpack_require__(17);
 	
 	Object.defineProperty(exports, 'Pose', {
 	  enumerable: true,
@@ -327,7 +244,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -358,18 +275,18 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	THE SOFTWARE. */
 	// END HEADER
 	
-	exports.glMatrix = __webpack_require__(7);
-	exports.mat2 = __webpack_require__(8);
-	exports.mat2d = __webpack_require__(9);
-	exports.mat3 = __webpack_require__(10);
-	exports.mat4 = __webpack_require__(11);
-	exports.quat = __webpack_require__(12);
-	exports.vec2 = __webpack_require__(15);
-	exports.vec3 = __webpack_require__(13);
-	exports.vec4 = __webpack_require__(14);
+	exports.glMatrix = __webpack_require__(8);
+	exports.mat2 = __webpack_require__(9);
+	exports.mat2d = __webpack_require__(10);
+	exports.mat3 = __webpack_require__(11);
+	exports.mat4 = __webpack_require__(12);
+	exports.quat = __webpack_require__(13);
+	exports.vec2 = __webpack_require__(16);
+	exports.vec3 = __webpack_require__(14);
+	exports.vec4 = __webpack_require__(15);
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -445,7 +362,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -468,7 +385,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
+	var glMatrix = __webpack_require__(8);
 	
 	/**
 	 * @class 2x2 Matrix
@@ -887,7 +804,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -910,7 +827,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
+	var glMatrix = __webpack_require__(8);
 	
 	/**
 	 * @class 2x3 Matrix
@@ -1362,7 +1279,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -1385,7 +1302,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
+	var glMatrix = __webpack_require__(8);
 	
 	/**
 	 * @class 3x3 Matrix
@@ -2114,7 +2031,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -2137,7 +2054,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
+	var glMatrix = __webpack_require__(8);
 	
 	/**
 	 * @class 4x4 Matrix
@@ -4256,7 +4173,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -4279,10 +4196,10 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
-	var mat3 = __webpack_require__(10);
-	var vec3 = __webpack_require__(13);
-	var vec4 = __webpack_require__(14);
+	var glMatrix = __webpack_require__(8);
+	var mat3 = __webpack_require__(11);
+	var vec3 = __webpack_require__(14);
+	var vec4 = __webpack_require__(15);
 	
 	/**
 	 * @class Quaternion
@@ -4862,7 +4779,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -4885,7 +4802,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
+	var glMatrix = __webpack_require__(8);
 	
 	/**
 	 * @class 3 Dimensional Vector
@@ -5645,7 +5562,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -5668,7 +5585,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
+	var glMatrix = __webpack_require__(8);
 	
 	/**
 	 * @class 4 Dimensional Vector
@@ -6260,7 +6177,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* Copyright (c) 2015, Brandon Jones, Colin MacKenzie IV.
@@ -6283,7 +6200,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 	THE SOFTWARE. */
 	
-	var glMatrix = __webpack_require__(7);
+	var glMatrix = __webpack_require__(8);
 	
 	/**
 	 * @class 2 Dimensional Vector
@@ -6853,7 +6770,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6864,7 +6781,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _glMatrix = __webpack_require__(6);
+	var _glMatrix = __webpack_require__(7);
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
@@ -6905,7 +6822,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Pose;
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -6914,256 +6831,59 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _Renderable = __webpack_require__(19);
 	
-	var _Math = __webpack_require__(5);
-	
-	var _ModelFlags = __webpack_require__(18);
-	
-	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var InternalModelFlags = {
-	  ENTERED: 1
-	};
-	
-	var Model = function () {
-	  function Model(init) {
-	    _classCallCheck(this, Model);
-	
-	    this.flags = 0;
-	    this.internalFlags = 0;
-	    this.stage = null;
-	    this.parent = null;
-	    this.children = null;
-	    this.pose = new _Math.Pose();
-	    this.modelMatrix = _Math.Matrix4.create();
-	    this.behaviors = init && init.behaviors || null;
-	    this.drawable = null;
-	    if (init && init.drawable) {
-	      this.setDrawable(init.drawable);
-	    }
-	    if (this.behaviors && this.behaviors.length > 0) {
-	      this.enableFlag(_ModelFlags2.default.UPDATE);
-	    }
+	Object.defineProperty(exports, 'Renderable', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Renderable.Renderable;
 	  }
-	
-	  _createClass(Model, [{
-	    key: 'hasFlag',
-	    value: function hasFlag(flag) {
-	      // eslint-disable-next-line no-bitwise
-	      return this.flags & flag !== 0;
-	    }
-	  }, {
-	    key: 'enableFlag',
-	    value: function enableFlag(flag) {
-	      // eslint-disable-next-line no-bitwise
-	      this.flags |= flag;
-	      if (this.stage) {
-	        this.stage.needsRebuild = true;
-	      }
-	    }
-	  }, {
-	    key: 'disableFlag',
-	    value: function disableFlag(flag) {
-	      // eslint-disable-next-line no-bitwise
-	      this.flags &= ~flag;
-	      if (this.stage) {
-	        this.stage.needsRebuild = true;
-	      }
-	    }
-	  }, {
-	    key: 'hasInternalFlag',
-	    value: function hasInternalFlag(flag) {
-	      // eslint-disable-next-line no-bitwise
-	      return this.internalFlags & flag !== 0;
-	    }
-	  }, {
-	    key: 'enableInternalFlag',
-	    value: function enableInternalFlag(flag) {
-	      // eslint-disable-next-line no-bitwise
-	      this.internalFlags |= flag;
-	    }
-	  }, {
-	    key: 'disableInternalFlag',
-	    value: function disableInternalFlag(flag) {
-	      // eslint-disable-next-line no-bitwise
-	      this.internalFlags &= ~flag;
-	    }
-	  }, {
-	    key: 'setDrawable',
-	    value: function setDrawable(drawable) {
-	      this.drawable = drawable;
-	      this.enableFlag(_ModelFlags2.default.DRAW);
-	    }
-	  }, {
-	    key: 'addChild',
-	    value: function addChild(child) {
-	      if (child.parent !== null) {
-	        throw new Error('child already parented');
-	      }
-	      child.stage = this.stage;
-	      child.parent = this;
-	      this.children = this.children || [];
-	      this.children.push(child);
-	      if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
-	        child.traverse(function (model) {
-	          return model.enter();
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'removeChild',
-	    value: function removeChild(child) {
-	      if (child.parent !== this) {
-	        throw new Error('not yo babies momma');
-	      }
-	      child.stage = null;
-	      child.parent = null;
-	      var index = this.children.indexOf(child);
-	      if (index >= 0) {
-	        this.children.splice(index, 1);
-	      }
-	      if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
-	        child.traverse(function (model) {
-	          return model.exit();
-	        });
-	      }
-	    }
-	  }, {
-	    key: 'removeCompleteBehaviors',
-	    value: function removeCompleteBehaviors() {
-	      for (var i = this.behaviors.length; i >= 0; --i) {
-	        if (this.behaviors[i].isComplete) {
-	          this.behaviors.splice(i, 1);
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'enter',
-	    value: function enter() {
-	      if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
-	        throw new Error('invalid entered state');
-	      }
-	      this.enableInternalFlag(InternalModelFlags.ENTERED);
-	      if (this.behaviors) {
-	        for (var i = 0; i < this.behaviors.length; ++i) {
-	          this.behaviors[i].enter(this);
-	        }
-	        this.removeCompleteBehaviors();
-	      }
-	    }
-	  }, {
-	    key: 'exit',
-	    value: function exit() {
-	      if (!this.hasInternalFlag(InternalModelFlags.ENTERED)) {
-	        throw new Error('invalid entered state');
-	      }
-	      if (this.behaviors) {
-	        for (var i = 0; i < this.behaviors.length; ++i) {
-	          this.behaviors[i].exit(this);
-	        }
-	        this.removeCompleteBehaviors();
-	      }
-	      this.disableInternalFlag(InternalModelFlags.ENTERED);
-	    }
-	  }, {
-	    key: 'traverse',
-	    value: function traverse(callback) {
-	      var stack = [this];
-	      while (stack.length > 0) {
-	        var next = stack.pop();
-	        callback(next);
-	        if (next.children) {
-	          stack.push.apply(stack, _toConsumableArray(next.children));
-	        }
-	      }
-	    }
-	  }, {
-	    key: 'preUpdate',
-	    value: function preUpdate(time) {
-	      if (this.behaviors) {
-	        for (var i = 0; i < this.behaviors.length; ++i) {
-	          this.behaviors[i].preUpdate(this, time);
-	        }
-	        this.removeCompleteBehaviors();
-	      }
-	    }
-	  }, {
-	    key: 'updateMatrix',
-	    value: function updateMatrix() {
-	      this.pose.updateMatrix();
-	      if (this.parent) {
-	        _Math.Matrix4.multiply(this.modelMatrix, this.parent.modelMatrix, this.pose.matrix);
-	      } else {
-	        _Math.Matrix4.copy(this.modelMatrix, this.pose.matrix);
-	      }
-	    }
-	  }, {
-	    key: 'postUpdate',
-	    value: function postUpdate(time) {
-	      if (this.behaviors) {
-	        for (var i = 0; i < this.behaviors.length; ++i) {
-	          this.behaviors[i].postUpdate(this, time);
-	        }
-	      }
-	      this.removeCompleteBehaviors();
-	    }
-	  }, {
-	    key: 'draw',
-	    value: function draw(ctx) {
-	      if (this.drawable) {
-	        ctx.modelMatrix = this.modelMatrix;
-	        this.drawable.draw(ctx);
-	      }
-	    }
-	  }, {
-	    key: 'setPose',
-	    value: function setPose(pose) {
-	      pose.copyTo(this.pose);
-	    }
-	  }, {
-	    key: 'moveTo',
-	    value: function moveTo(x, y, z) {
-	      _Math.Vector3.set(this.pose.position, x, y, z);
-	    }
-	  }, {
-	    key: 'lookAt',
-	    value: function lookAt(x, y, z) {
-	      _Math.Matrix4.lookAt(this.pose.matrix, this.pose.position, _Math.Vector3.fromValues(x, y, z), _Math.Vector3.fromValues(0, 1, 0));
-	      _Math.Matrix4.getRotation(this.pose.orientation, this.pose.matrix);
-	      _Math.Quaternion.invert(this.pose.orientation, this.pose.orientation);
-	    }
-	  }]);
-	
-	  return Model;
-	}();
-	
-	exports.default = Model;
-
-/***/ },
-/* 18 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
 	});
-	exports.default = {
-	  PRE_UPDATE: 1,
-	  MATRIX_UPDATE: 2,
-	  POST_UPDATE: 4,
-	  DRAW: 8,
-	  CAMERA: 16,
-	  LIGHT: 32,
-	  SHADOW_CASTER: 64
-	};
+	
+	var _DynamicUniforms = __webpack_require__(22);
+	
+	Object.defineProperty(exports, 'DynamicUniforms', {
+	  enumerable: true,
+	  get: function get() {
+	    return _DynamicUniforms.DynamicUniforms;
+	  }
+	});
+	
+	var _IndexBuffer = __webpack_require__(20);
+	
+	Object.defineProperty(exports, 'IndexBuffer', {
+	  enumerable: true,
+	  get: function get() {
+	    return _IndexBuffer.IndexBuffer;
+	  }
+	});
+	
+	var _Material = __webpack_require__(23);
+	
+	Object.defineProperty(exports, 'Material', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Material.Material;
+	  }
+	});
+	
+	var _PrimitiveType = __webpack_require__(21);
+	
+	Object.defineProperty(exports, 'PrimitiveType', {
+	  enumerable: true,
+	  get: function get() {
+	    return _PrimitiveType.PrimitiveType;
+	  }
+	});
+	
+	var _VertexBuffer = __webpack_require__(24);
+	
+	Object.defineProperty(exports, 'VertexBuffer', {
+	  enumerable: true,
+	  get: function get() {
+	    return _VertexBuffer.VertexBuffer;
+	  }
+	});
 
 /***/ },
 /* 19 */
@@ -7177,651 +6897,11 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _Math = __webpack_require__(5);
-	
-	var _Camera2 = __webpack_require__(4);
-	
-	var _Camera3 = _interopRequireDefault(_Camera2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var OrthoCamera = function (_Camera) {
-	  _inherits(OrthoCamera, _Camera);
-	
-	  function OrthoCamera(init) {
-	    _classCallCheck(this, OrthoCamera);
-	
-	    var _this = _possibleConstructorReturn(this, (OrthoCamera.__proto__ || Object.getPrototypeOf(OrthoCamera)).call(this, init));
-	
-	    _this.left = init && init.left || 0;
-	    _this.top = init && init.top || 0;
-	    _this.right = init && init.right || null;
-	    _this.bottom = init && init.bottom || null;
-	    _this.near = init && init.near || 0.0;
-	    _this.far = init && init.far || 1.0;
-	    _this.updateProjection();
-	    return _this;
-	  }
-	
-	  _createClass(OrthoCamera, [{
-	    key: 'updateProjection',
-	    value: function updateProjection() {
-	      _Math.Matrix.ortho(this.projMatrix, this.left, this.right === null ? this.left + this.viewportWidth : this.right, this.top, this.bottom === null ? this.top + this.viewportHeight : this.bottom, this.near, this.far);
-	    }
-	  }]);
-	
-	  return OrthoCamera;
-	}(_Camera3.default);
-	
-	exports.default = OrthoCamera;
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _Math = __webpack_require__(5);
-	
-	var _Camera2 = __webpack_require__(4);
-	
-	var _Camera3 = _interopRequireDefault(_Camera2);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var PerspectiveCamera = function (_Camera) {
-	  _inherits(PerspectiveCamera, _Camera);
-	
-	  function PerspectiveCamera(init) {
-	    _classCallCheck(this, PerspectiveCamera);
-	
-	    var _this = _possibleConstructorReturn(this, (PerspectiveCamera.__proto__ || Object.getPrototypeOf(PerspectiveCamera)).call(this, init));
-	
-	    _this.fov = init && init.fov || Math.PI / 2.0;
-	    _this.near = init && init.near || 1.0;
-	    _this.far = init && init.far || 1000.0;
-	    _this.updateProjection();
-	    return _this;
-	  }
-	
-	  _createClass(PerspectiveCamera, [{
-	    key: 'updateProjection',
-	    value: function updateProjection() {
-	      _Math.Matrix.perspective(this.projMatrix, this.fov, this.viewportWidth / this.viewportHeight, this.near, this.far);
-	    }
-	  }]);
-	
-	  return PerspectiveCamera;
-	}(_Camera3.default);
-	
-	exports.default = PerspectiveCamera;
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _DirectionalLight = __webpack_require__(22);
-	
-	Object.defineProperty(exports, 'DirectionalLight', {
-	  enumerable: true,
-	  get: function get() {
-	    return _DirectionalLight.DirectionalLight;
-	  }
-	});
-	
-	var _PointLight = __webpack_require__(23);
-	
-	Object.defineProperty(exports, 'PointLight', {
-	  enumerable: true,
-	  get: function get() {
-	    return _PointLight.PointLight;
-	  }
-	});
-	
-	var _SpotLight = __webpack_require__(24);
-	
-	Object.defineProperty(exports, 'SpotLight', {
-	  enumerable: true,
-	  get: function get() {
-	    return _SpotLight.SpotLight;
-	  }
-	});
-
-/***/ },
-/* 22 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _OrthoCamera2 = __webpack_require__(19);
-	
-	var _OrthoCamera3 = _interopRequireDefault(_OrthoCamera2);
-	
-	var _ModelFlags = __webpack_require__(18);
-	
-	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var DirectionalLight = function (_OrthoCamera) {
-	  _inherits(DirectionalLight, _OrthoCamera);
-	
-	  function DirectionalLight(init) {
-	    _classCallCheck(this, DirectionalLight);
-	
-	    var _this = _possibleConstructorReturn(this, (DirectionalLight.__proto__ || Object.getPrototypeOf(DirectionalLight)).call(this, init));
-	
-	    _this.setFlag(_ModelFlags2.default.LIGHT);
-	    return _this;
-	  }
-	
-	  return DirectionalLight;
-	}(_OrthoCamera3.default);
-	
-	exports.default = DirectionalLight;
-
-/***/ },
-/* 23 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _Model2 = __webpack_require__(17);
-	
-	var _Model3 = _interopRequireDefault(_Model2);
-	
-	var _ModelFlags = __webpack_require__(18);
-	
-	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var PointLight = function (_Model) {
-	  _inherits(PointLight, _Model);
-	
-	  function PointLight(init) {
-	    _classCallCheck(this, PointLight);
-	
-	    var _this = _possibleConstructorReturn(this, (PointLight.__proto__ || Object.getPrototypeOf(PointLight)).call(this, init));
-	
-	    _this.setFlag(_ModelFlags2.default.LIGHT);
-	    return _this;
-	  }
-	
-	  return PointLight;
-	}(_Model3.default);
-	
-	exports.default = PointLight;
-
-/***/ },
-/* 24 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _PerspectiveCamera2 = __webpack_require__(20);
-	
-	var _PerspectiveCamera3 = _interopRequireDefault(_PerspectiveCamera2);
-	
-	var _ModelFlags = __webpack_require__(18);
-	
-	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var SpotLight = function (_PerspectiveCamera) {
-	  _inherits(SpotLight, _PerspectiveCamera);
-	
-	  function SpotLight(init) {
-	    _classCallCheck(this, SpotLight);
-	
-	    var _this = _possibleConstructorReturn(this, (SpotLight.__proto__ || Object.getPrototypeOf(SpotLight)).call(this, init));
-	
-	    _this.setFlag(_ModelFlags2.default.LIGHT);
-	    return _this;
-	  }
-	
-	  return SpotLight;
-	}(_PerspectiveCamera3.default);
-	
-	exports.default = SpotLight;
-
-/***/ },
-/* 25 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var Behavior = function () {
-	  function Behavior() {
-	    _classCallCheck(this, Behavior);
-	
-	    this.complete = false;
-	  }
-	
-	  // eslint-disable-next-line class-methods-use-this
-	
-	
-	  _createClass(Behavior, [{
-	    key: "attach",
-	    value: function attach() /* model */{}
-	
-	    // eslint-disable-next-line class-methods-use-this
-	
-	  }, {
-	    key: "detach",
-	    value: function detach() /* model */{}
-	
-	    // eslint-disable-next-line class-methods-use-this
-	
-	  }, {
-	    key: "enter",
-	    value: function enter() /* model */{}
-	    // eslint-disable-next-line class-methods-use-this
-	
-	  }, {
-	    key: "exit",
-	    value: function exit() /* model */{}
-	    // eslint-disable-next-line class-methods-use-this
-	
-	  }, {
-	    key: "preUpdate",
-	    value: function preUpdate() /* model, time */{}
-	    // eslint-disable-next-line class-methods-use-this
-	
-	  }, {
-	    key: "postUpdate",
-	    value: function postUpdate() /* model, time */{}
-	  }]);
-	
-	  return Behavior;
-	}();
-	
-	exports.default = Behavior;
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _Model = __webpack_require__(17);
-	
-	var _Model2 = _interopRequireDefault(_Model);
-	
-	var _PerspectiveCamera = __webpack_require__(20);
-	
-	var _PerspectiveCamera2 = _interopRequireDefault(_PerspectiveCamera);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var Layer = function () {
-	  function Layer(init) {
-	    _classCallCheck(this, Layer);
-	
-	    this.stage = init.stage || new _Model2.default();
-	    this.camera = init.camera || new _PerspectiveCamera2.default();
-	    this.viewport = init.viewport;
-	    this.clearColor = init.clearColor || { r: 0, g: 0, b: 0 };
-	    this.clearDepth = init.clearDepth || false;
-	    this.target = init.target;
-	  }
-	
-	  _createClass(Layer, [{
-	    key: 'update',
-	    value: function update(time, frame) {
-	      // only update stages once per frame
-	      if (this.stage.lastFrame < frame) {
-	        this.state.lastFrame = frame;
-	        this.stage.update(time);
-	      }
-	    }
-	  }, {
-	    key: 'draw',
-	    value: function draw(theater, time) {
-	      if (this.viewport) {
-	        theater.gl.viewport(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
-	      } else {
-	        theater.gl.viewport(0, 0, theater.gl.canvas.width, theater.gl.canvas.height);
-	      }
-	      var clearFlags = this.clearDepth ? theater.gl.DEPTH_BUFFER_BIT : 0;
-	      if (this.clearColor) {
-	        theater.gl.clearColor(this.clearColor.r, this.clearColor.g, this.clearColor.b, this.clearColor.a || 1.0);
-	        // eslint-disable-next-line no-bitwise
-	        clearFlags |= theater.gl.COLOR_BUFFER_BIT;
-	      }
-	
-	      if (clearFlags) {
-	        theater.gl.clear(clearFlags);
-	      }
-	
-	      var ctx = {
-	        time: time,
-	        camera: this.camera
-	      };
-	
-	      // TODO deal with render targets
-	      this.stage.draw(ctx);
-	    }
-	  }]);
-	
-	  return Layer;
-	}();
-	
-	exports.default = Layer;
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _Model2 = __webpack_require__(17);
-	
-	var _Model3 = _interopRequireDefault(_Model2);
-	
-	var _ModelFlags = __webpack_require__(18);
-	
-	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Stage = function (_Model) {
-	  _inherits(Stage, _Model);
-	
-	  function Stage() {
-	    _classCallCheck(this, Stage);
-	
-	    var _this = _possibleConstructorReturn(this, (Stage.__proto__ || Object.getPrototypeOf(Stage)).call(this));
-	
-	    _this.stage = _this;
-	    _this.needsRebuild = false;
-	    _this.lastFrame = 0;
-	    _this.modelFlagKeys = Object.keys(_ModelFlags2.default);
-	    _this.modelFlags = _this.modelFlagKeys.map(function (k) {
-	      return _ModelFlags2.default[k];
-	    });
-	    _this.modelFlagLists = {};
-	    for (var i = 0; i < _this.modelFlags.length; ++i) {
-	      _this.modelFlagLists[_this.modelFlagKeys[i]] = [];
-	    }
-	    _this.enter();
-	    return _this;
-	  }
-	
-	  _createClass(Stage, [{
-	    key: 'rebuild',
-	    value: function rebuild() {
-	      var _this2 = this;
-	
-	      // reset lists
-	      for (var i = 0; i < this.modelFlags.length; ++i) {
-	        this.modelFlagLists[this.modelFlagKeys[i]].length = 0;
-	      }
-	
-	      // traverse the tree to rebuild lists
-	      this.traverse(function (model) {
-	        for (var _i = 0; _i < _this2.modelFlagKeys.length; ++_i) {
-	          if (model.hasFlag(_this2.modelFlags[_i])) {
-	            _this2.modelFlagLists[_this2.modelFlagKeys[_i]].push(model);
-	          }
-	        }
-	      });
-	    }
-	  }, {
-	    key: 'update',
-	    value: function update(time) {
-	      if (this.needsRebuild) {
-	        this.rebuild();
-	      }
-	      var i = void 0;
-	      var list = this.modelFlagLists.PRE_UPDATE;
-	      var len = list.len;
-	      for (i = 0; i < len; ++i) {
-	        list[i].preUpdate(time);
-	      }
-	      list = this.modelFlagLists.MATRIX_UPDATE;
-	      len = list.len;
-	      for (i = 0; i < len; ++i) {
-	        list[i].updateMatrix(time);
-	      }
-	      list = this.modelFlagLists.CAMERA;
-	      len = list.len;
-	      for (i = 0; i < len; ++i) {
-	        list[i].updateView();
-	      }
-	      list = this.modelFlagLists.POST_UPDATE;
-	      len = list.len;
-	      for (i = 0; i < len; ++i) {
-	        list[i].postUpdate(time);
-	      }
-	    }
-	  }, {
-	    key: 'draw',
-	    value: function draw(ctx) {
-	      var list = this.modelFlagLists.DRAW;
-	      var len = list.len;
-	      for (var i = 0; i < len; ++i) {
-	        list[i].draw(ctx);
-	      }
-	    }
-	  }]);
-	
-	  return Stage;
-	}(_Model3.default);
-	
-	exports.default = Stage;
-
-/***/ },
-/* 28 */
-/***/ function(module, exports) {
-
-	"use strict";
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	var Theater = function () {
-	  function Theater(canvas) {
-	    _classCallCheck(this, Theater);
-	
-	    this.gl = canvas.getContext(canvas);
-	    this.layers = [];
-	    this.tickCallback = this.tick.bind(this);
-	    this.frame = 0;
-	    this.requestAnimationFrame = window.requestAnimationFrame.bind(window);
-	    this._continuous = true;
-	  }
-	
-	  _createClass(Theater, [{
-	    key: "tick",
-	    value: function tick(time) {
-	      this.frame++;
-	      for (var i = 0; i < this.layers.length; i++) {
-	        this.layers[i].update(time, this.frame);
-	      }
-	      for (var _i = 0; _i < this.layers.length; _i++) {
-	        this.layers[_i].draw(this, time);
-	      }
-	      if (this.continuous) {
-	        this.requestAnimationFrame(this.tickCallback);
-	      }
-	    }
-	  }]);
-	
-	  return Theater;
-	}();
-	
-	exports.default = Theater;
-
-/***/ },
-/* 29 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _Drawable = __webpack_require__(30);
-	
-	Object.defineProperty(exports, 'Drawable', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Drawable.Drawable;
-	  }
-	});
-	
-	var _DynamicUniforms = __webpack_require__(33);
-	
-	Object.defineProperty(exports, 'DynamicUniforms', {
-	  enumerable: true,
-	  get: function get() {
-	    return _DynamicUniforms.DynamicUniforms;
-	  }
-	});
-	
-	var _IndexBuffer = __webpack_require__(31);
-	
-	Object.defineProperty(exports, 'IndexBuffer', {
-	  enumerable: true,
-	  get: function get() {
-	    return _IndexBuffer.IndexBuffer;
-	  }
-	});
-	
-	var _Material = __webpack_require__(34);
-	
-	Object.defineProperty(exports, 'Material', {
-	  enumerable: true,
-	  get: function get() {
-	    return _Material.Material;
-	  }
-	});
-	
-	var _PrimitiveType = __webpack_require__(32);
-	
-	Object.defineProperty(exports, 'PrimitiveType', {
-	  enumerable: true,
-	  get: function get() {
-	    return _PrimitiveType.PrimitiveType;
-	  }
-	});
-	
-	var _VertexBuffer = __webpack_require__(35);
-	
-	Object.defineProperty(exports, 'VertexBuffer', {
-	  enumerable: true,
-	  get: function get() {
-	    return _VertexBuffer.VertexBuffer;
-	  }
-	});
-
-/***/ },
-/* 30 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _IndexBuffer = __webpack_require__(31);
+	var _IndexBuffer = __webpack_require__(20);
 	
 	var _IndexBuffer2 = _interopRequireDefault(_IndexBuffer);
 	
-	var _PrimitiveType = __webpack_require__(32);
+	var _PrimitiveType = __webpack_require__(21);
 	
 	var _PrimitiveType2 = _interopRequireDefault(_PrimitiveType);
 	
@@ -7829,9 +6909,9 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 	
-	var Drawable = function () {
-	  function Drawable(gl, material, vertexBuffer, indexBufferOrPrimitiveType) {
-	    _classCallCheck(this, Drawable);
+	var Renderable = function () {
+	  function Renderable(gl, material, vertexBuffer, indexBufferOrPrimitiveType) {
+	    _classCallCheck(this, Renderable);
 	
 	    this.gl = gl;
 	    this.material = material;
@@ -7840,9 +6920,9 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    this.primitiveType = this.indexBuffer ? this.indexBuffer.type : indexBufferOrPrimitiveType;
 	  }
 	
-	  _createClass(Drawable, [{
-	    key: 'draw',
-	    value: function draw(ctx) {
+	  _createClass(Renderable, [{
+	    key: 'render',
+	    value: function render(ctx) {
 	      this.material.use(ctx);
 	      this.vertexBuffer.use(this.material.attribLocations);
 	      if (this.indexBuffer) {
@@ -7858,13 +6938,13 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }]);
 	
-	  return Drawable;
+	  return Renderable;
 	}();
 	
-	exports.default = Drawable;
+	exports.default = Renderable;
 
 /***/ },
-/* 31 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7875,7 +6955,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _PrimitiveType = __webpack_require__(32);
+	var _PrimitiveType = __webpack_require__(21);
 	
 	var _PrimitiveType2 = _interopRequireDefault(_PrimitiveType);
 	
@@ -7943,7 +7023,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	exports.default = IndexBuffer;
 
 /***/ },
-/* 32 */
+/* 21 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -7957,7 +7037,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 33 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -7966,7 +7046,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _glMatrix = __webpack_require__(6);
+	var _glMatrix = __webpack_require__(7);
 	
 	// Material will automatically compute standard uniforms that may be used in a shader.
 	exports.default = {
@@ -8036,7 +7116,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 34 */
+/* 23 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -8149,7 +7229,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	exports.default = Material;
 
 /***/ },
-/* 35 */
+/* 24 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -8240,7 +7320,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	exports.default = VertexBuffer;
 
 /***/ },
-/* 36 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -8249,7 +7329,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _ResourceManager = __webpack_require__(37);
+	var _ResourceManager = __webpack_require__(26);
 	
 	Object.defineProperty(exports, 'ResourceManager', {
 	  enumerable: true,
@@ -8259,7 +7339,7 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	});
 
 /***/ },
-/* 37 */
+/* 26 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -8275,6 +7355,1045 @@ define(function() { return /******/ (function(modules) { // webpackBootstrap
 	};
 	
 	exports.default = ResourceManager;
+
+/***/ },
+/* 27 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Behaviors = __webpack_require__(28);
+	
+	Object.defineProperty(exports, 'Behaviors', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Behaviors.Behaviors;
+	  }
+	});
+	
+	var _Cameras = __webpack_require__(30);
+	
+	Object.defineProperty(exports, 'Cameras', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Cameras.Cameras;
+	  }
+	});
+	
+	var _Lights = __webpack_require__(36);
+	
+	Object.defineProperty(exports, 'Lights', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Lights.Lights;
+	  }
+	});
+	
+	var _Model = __webpack_require__(32);
+	
+	Object.defineProperty(exports, 'Model', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Model.Model;
+	  }
+	});
+	
+	var _ModelFlags = __webpack_require__(33);
+	
+	Object.defineProperty(exports, 'ModelFlags', {
+	  enumerable: true,
+	  get: function get() {
+	    return _ModelFlags.ModelFlags;
+	  }
+	});
+	
+	var _Scene = __webpack_require__(40);
+	
+	Object.defineProperty(exports, 'Scene', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Scene.Scene;
+	  }
+	});
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Behavior = __webpack_require__(29);
+	
+	Object.defineProperty(exports, 'Behavior', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Behavior.Behavior;
+	  }
+	});
+
+/***/ },
+/* 29 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Behavior = function () {
+	  function Behavior() {
+	    _classCallCheck(this, Behavior);
+	
+	    this.complete = false;
+	  }
+	
+	  // eslint-disable-next-line class-methods-use-this
+	
+	
+	  _createClass(Behavior, [{
+	    key: "attach",
+	    value: function attach() /* model */{}
+	
+	    // eslint-disable-next-line class-methods-use-this
+	
+	  }, {
+	    key: "detach",
+	    value: function detach() /* model */{}
+	
+	    // eslint-disable-next-line class-methods-use-this
+	
+	  }, {
+	    key: "enter",
+	    value: function enter() /* model */{}
+	    // eslint-disable-next-line class-methods-use-this
+	
+	  }, {
+	    key: "exit",
+	    value: function exit() /* model */{}
+	    // eslint-disable-next-line class-methods-use-this
+	
+	  }, {
+	    key: "preUpdate",
+	    value: function preUpdate() /* model, time */{}
+	    // eslint-disable-next-line class-methods-use-this
+	
+	  }, {
+	    key: "postUpdate",
+	    value: function postUpdate() /* model, time */{}
+	  }]);
+	
+	  return Behavior;
+	}();
+	
+	exports.default = Behavior;
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Camera = __webpack_require__(31);
+	
+	Object.defineProperty(exports, 'Camera', {
+	  enumerable: true,
+	  get: function get() {
+	    return _Camera.Camera;
+	  }
+	});
+	
+	var _OrthoCamera = __webpack_require__(34);
+	
+	Object.defineProperty(exports, 'OrthoCamera', {
+	  enumerable: true,
+	  get: function get() {
+	    return _OrthoCamera.OrthoCamera;
+	  }
+	});
+	
+	var _PerspectiveCamera = __webpack_require__(35);
+	
+	Object.defineProperty(exports, 'PerspectiveCamera', {
+	  enumerable: true,
+	  get: function get() {
+	    return _PerspectiveCamera.PerspectiveCamera;
+	  }
+	});
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Math = __webpack_require__(6);
+	
+	var _Model2 = __webpack_require__(32);
+	
+	var _Model3 = _interopRequireDefault(_Model2);
+	
+	var _ModelFlags = __webpack_require__(33);
+	
+	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Camera = function (_Model) {
+	  _inherits(Camera, _Model);
+	
+	  function Camera(init) {
+	    _classCallCheck(this, Camera);
+	
+	    init = init || {};
+	
+	    var _this = _possibleConstructorReturn(this, (Camera.__proto__ || Object.getPrototypeOf(Camera)).call(this));
+	
+	    _this.viewportWidth = init.viewportWidth || 512;
+	    _this.viewportHeight = init.viewportHeight || 512;
+	    _this.setFlag(_ModelFlags2.default.CAMERA);
+	    _this.viewMatrix = _Math.Matrix.create();
+	    _this.projMatrix = _Math.Matrix.create();
+	    return _this;
+	  }
+	  // eslint-disable-next-line class-methods-use-this
+	
+	
+	  _createClass(Camera, [{
+	    key: 'updateProjection',
+	    value: function updateProjection() {}
+	  }, {
+	    key: 'updateView',
+	    value: function updateView() {
+	      _Math.Matrix.invert(this.viewMatrix, this.modelMatrix);
+	    }
+	  }, {
+	    key: 'updateViewport',
+	    value: function updateViewport(width, height) {
+	      var oldWidth = this.viewportWidth;
+	      var oldHeight = this.viewportHeight;
+	      this.viewportWidth = width;
+	      this.viewportHeight = height;
+	      if (oldWidth !== width || oldHeight !== height) {
+	        this.updateProjection();
+	      }
+	    }
+	  }]);
+	
+	  return Camera;
+	}(_Model3.default);
+	
+	exports.default = Camera;
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Math = __webpack_require__(6);
+	
+	var _ModelFlags = __webpack_require__(33);
+	
+	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var InternalModelFlags = {
+	  ENTERED: 1
+	};
+	
+	var Model = function () {
+	  function Model(init) {
+	    _classCallCheck(this, Model);
+	
+	    this.flags = 0;
+	    this.internalFlags = 0;
+	    this.scene = null;
+	    this.parent = null;
+	    this.children = null;
+	    this.pose = new _Math.Pose();
+	    this.modelMatrix = _Math.Matrix4.create();
+	    this.behaviors = init && init.behaviors || null;
+	    this.drawable = null;
+	    if (init && init.drawable) {
+	      this.setDrawable(init.drawable);
+	    }
+	    if (this.behaviors && this.behaviors.length > 0) {
+	      this.enableFlag(_ModelFlags2.default.UPDATE);
+	    }
+	  }
+	
+	  _createClass(Model, [{
+	    key: 'hasFlag',
+	    value: function hasFlag(flag) {
+	      // eslint-disable-next-line no-bitwise
+	      return this.flags & flag !== 0;
+	    }
+	  }, {
+	    key: 'enableFlag',
+	    value: function enableFlag(flag) {
+	      // eslint-disable-next-line no-bitwise
+	      this.flags |= flag;
+	      if (this.scene) {
+	        this.scene.needsRebuild = true;
+	      }
+	    }
+	  }, {
+	    key: 'disableFlag',
+	    value: function disableFlag(flag) {
+	      // eslint-disable-next-line no-bitwise
+	      this.flags &= ~flag;
+	      if (this.scene) {
+	        this.scene.needsRebuild = true;
+	      }
+	    }
+	  }, {
+	    key: 'hasInternalFlag',
+	    value: function hasInternalFlag(flag) {
+	      // eslint-disable-next-line no-bitwise
+	      return this.internalFlags & flag !== 0;
+	    }
+	  }, {
+	    key: 'enableInternalFlag',
+	    value: function enableInternalFlag(flag) {
+	      // eslint-disable-next-line no-bitwise
+	      this.internalFlags |= flag;
+	    }
+	  }, {
+	    key: 'disableInternalFlag',
+	    value: function disableInternalFlag(flag) {
+	      // eslint-disable-next-line no-bitwise
+	      this.internalFlags &= ~flag;
+	    }
+	  }, {
+	    key: 'setDrawable',
+	    value: function setDrawable(drawable) {
+	      this.drawable = drawable;
+	      this.enableFlag(_ModelFlags2.default.DRAW);
+	    }
+	  }, {
+	    key: 'addChild',
+	    value: function addChild(child) {
+	      if (child.parent !== null) {
+	        throw new Error('child already parented');
+	      }
+	      child.scene = this.scene;
+	      child.parent = this;
+	      this.children = this.children || [];
+	      this.children.push(child);
+	      if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
+	        child.traverse(function (model) {
+	          return model.enter();
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'removeChild',
+	    value: function removeChild(child) {
+	      if (child.parent !== this) {
+	        throw new Error('not yo babies momma');
+	      }
+	      child.scene = null;
+	      child.parent = null;
+	      var index = this.children.indexOf(child);
+	      if (index >= 0) {
+	        this.children.splice(index, 1);
+	      }
+	      if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
+	        child.traverse(function (model) {
+	          return model.exit();
+	        });
+	      }
+	    }
+	  }, {
+	    key: 'removeCompleteBehaviors',
+	    value: function removeCompleteBehaviors() {
+	      for (var i = this.behaviors.length; i >= 0; --i) {
+	        if (this.behaviors[i].isComplete) {
+	          this.behaviors.splice(i, 1);
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'enter',
+	    value: function enter() {
+	      if (this.hasInternalFlag(InternalModelFlags.ENTERED)) {
+	        throw new Error('invalid entered state');
+	      }
+	      this.enableInternalFlag(InternalModelFlags.ENTERED);
+	      if (this.behaviors) {
+	        for (var i = 0; i < this.behaviors.length; ++i) {
+	          this.behaviors[i].enter(this);
+	        }
+	        this.removeCompleteBehaviors();
+	      }
+	    }
+	  }, {
+	    key: 'exit',
+	    value: function exit() {
+	      if (!this.hasInternalFlag(InternalModelFlags.ENTERED)) {
+	        throw new Error('invalid entered state');
+	      }
+	      if (this.behaviors) {
+	        for (var i = 0; i < this.behaviors.length; ++i) {
+	          this.behaviors[i].exit(this);
+	        }
+	        this.removeCompleteBehaviors();
+	      }
+	      this.disableInternalFlag(InternalModelFlags.ENTERED);
+	    }
+	  }, {
+	    key: 'traverse',
+	    value: function traverse(callback) {
+	      var stack = [this];
+	      while (stack.length > 0) {
+	        var next = stack.pop();
+	        callback(next);
+	        if (next.children) {
+	          stack.push.apply(stack, _toConsumableArray(next.children));
+	        }
+	      }
+	    }
+	  }, {
+	    key: 'preUpdate',
+	    value: function preUpdate(time) {
+	      if (this.behaviors) {
+	        for (var i = 0; i < this.behaviors.length; ++i) {
+	          this.behaviors[i].preUpdate(this, time);
+	        }
+	        this.removeCompleteBehaviors();
+	      }
+	    }
+	  }, {
+	    key: 'updateMatrix',
+	    value: function updateMatrix() {
+	      this.pose.updateMatrix();
+	      if (this.parent) {
+	        _Math.Matrix4.multiply(this.modelMatrix, this.parent.modelMatrix, this.pose.matrix);
+	      } else {
+	        _Math.Matrix4.copy(this.modelMatrix, this.pose.matrix);
+	      }
+	    }
+	  }, {
+	    key: 'postUpdate',
+	    value: function postUpdate(time) {
+	      if (this.behaviors) {
+	        for (var i = 0; i < this.behaviors.length; ++i) {
+	          this.behaviors[i].postUpdate(this, time);
+	        }
+	      }
+	      this.removeCompleteBehaviors();
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render(ctx) {
+	      if (this.drawable) {
+	        ctx.modelMatrix = this.modelMatrix;
+	        this.drawable.render(ctx);
+	      }
+	    }
+	  }, {
+	    key: 'setPose',
+	    value: function setPose(pose) {
+	      pose.copyTo(this.pose);
+	      return this;
+	    }
+	  }, {
+	    key: 'moveTo',
+	    value: function moveTo(x, y, z) {
+	      _Math.Vector3.set(this.pose.position, x, y, z);
+	      return this;
+	    }
+	  }, {
+	    key: 'lookAt',
+	    value: function lookAt(x, y, z) {
+	      _Math.Matrix4.lookAt(this.pose.matrix, this.pose.position, _Math.Vector3.fromValues(x, y, z), _Math.Vector3.fromValues(0, 1, 0));
+	      _Math.Matrix4.getRotation(this.pose.orientation, this.pose.matrix);
+	      _Math.Quaternion.invert(this.pose.orientation, this.pose.orientation);
+	      return this;
+	    }
+	  }]);
+	
+	  return Model;
+	}();
+	
+	exports.default = Model;
+
+/***/ },
+/* 33 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.default = {
+	  PRE_UPDATE: 1,
+	  MATRIX_UPDATE: 2,
+	  POST_UPDATE: 4,
+	  RENDER: 8,
+	  CAMERA: 16,
+	  LIGHT: 32,
+	  SHADOW_CASTER: 64
+	};
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Math = __webpack_require__(6);
+	
+	var _Camera2 = __webpack_require__(31);
+	
+	var _Camera3 = _interopRequireDefault(_Camera2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var OrthoCamera = function (_Camera) {
+	  _inherits(OrthoCamera, _Camera);
+	
+	  function OrthoCamera(init) {
+	    _classCallCheck(this, OrthoCamera);
+	
+	    init = init || {};
+	
+	    var _this = _possibleConstructorReturn(this, (OrthoCamera.__proto__ || Object.getPrototypeOf(OrthoCamera)).call(this, init));
+	
+	    _this.left = init.left || 0;
+	    _this.top = init.top || 0;
+	    _this.right = init.right || null;
+	    _this.bottom = init.bottom || null;
+	    _this.near = init.near || 0.0;
+	    _this.far = init.far || 1.0;
+	    _this.updateProjection();
+	    return _this;
+	  }
+	
+	  _createClass(OrthoCamera, [{
+	    key: 'updateProjection',
+	    value: function updateProjection() {
+	      _Math.Matrix.ortho(this.projMatrix, this.left, this.right === null ? this.left + this.viewportWidth : this.right, this.top, this.bottom === null ? this.top + this.viewportHeight : this.bottom, this.near, this.far);
+	    }
+	  }]);
+	
+	  return OrthoCamera;
+	}(_Camera3.default);
+	
+	exports.default = OrthoCamera;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Math = __webpack_require__(6);
+	
+	var _Camera2 = __webpack_require__(31);
+	
+	var _Camera3 = _interopRequireDefault(_Camera2);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PerspectiveCamera = function (_Camera) {
+	  _inherits(PerspectiveCamera, _Camera);
+	
+	  function PerspectiveCamera(init) {
+	    _classCallCheck(this, PerspectiveCamera);
+	
+	    init = init || {};
+	
+	    var _this = _possibleConstructorReturn(this, (PerspectiveCamera.__proto__ || Object.getPrototypeOf(PerspectiveCamera)).call(this, init));
+	
+	    _this.fov = init.fov || Math.PI / 2.0;
+	    _this.near = init.near || 1.0;
+	    _this.far = init.far || 1000.0;
+	    _this.updateProjection();
+	    return _this;
+	  }
+	
+	  _createClass(PerspectiveCamera, [{
+	    key: 'updateProjection',
+	    value: function updateProjection() {
+	      _Math.Matrix.perspective(this.projMatrix, this.fov, this.viewportWidth / this.viewportHeight, this.near, this.far);
+	    }
+	  }]);
+	
+	  return PerspectiveCamera;
+	}(_Camera3.default);
+	
+	exports.default = PerspectiveCamera;
+
+/***/ },
+/* 36 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _DirectionalLight = __webpack_require__(37);
+	
+	Object.defineProperty(exports, 'DirectionalLight', {
+	  enumerable: true,
+	  get: function get() {
+	    return _DirectionalLight.DirectionalLight;
+	  }
+	});
+	
+	var _PointLight = __webpack_require__(38);
+	
+	Object.defineProperty(exports, 'PointLight', {
+	  enumerable: true,
+	  get: function get() {
+	    return _PointLight.PointLight;
+	  }
+	});
+	
+	var _SpotLight = __webpack_require__(39);
+	
+	Object.defineProperty(exports, 'SpotLight', {
+	  enumerable: true,
+	  get: function get() {
+	    return _SpotLight.SpotLight;
+	  }
+	});
+
+/***/ },
+/* 37 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _OrthoCamera2 = __webpack_require__(34);
+	
+	var _OrthoCamera3 = _interopRequireDefault(_OrthoCamera2);
+	
+	var _ModelFlags = __webpack_require__(33);
+	
+	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var DirectionalLight = function (_OrthoCamera) {
+	  _inherits(DirectionalLight, _OrthoCamera);
+	
+	  function DirectionalLight(init) {
+	    _classCallCheck(this, DirectionalLight);
+	
+	    var _this = _possibleConstructorReturn(this, (DirectionalLight.__proto__ || Object.getPrototypeOf(DirectionalLight)).call(this, init));
+	
+	    _this.setFlag(_ModelFlags2.default.LIGHT);
+	    return _this;
+	  }
+	
+	  return DirectionalLight;
+	}(_OrthoCamera3.default);
+	
+	exports.default = DirectionalLight;
+
+/***/ },
+/* 38 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _Model2 = __webpack_require__(32);
+	
+	var _Model3 = _interopRequireDefault(_Model2);
+	
+	var _ModelFlags = __webpack_require__(33);
+	
+	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var PointLight = function (_Model) {
+	  _inherits(PointLight, _Model);
+	
+	  function PointLight(init) {
+	    _classCallCheck(this, PointLight);
+	
+	    var _this = _possibleConstructorReturn(this, (PointLight.__proto__ || Object.getPrototypeOf(PointLight)).call(this, init));
+	
+	    _this.setFlag(_ModelFlags2.default.LIGHT);
+	    return _this;
+	  }
+	
+	  return PointLight;
+	}(_Model3.default);
+	
+	exports.default = PointLight;
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _PerspectiveCamera2 = __webpack_require__(35);
+	
+	var _PerspectiveCamera3 = _interopRequireDefault(_PerspectiveCamera2);
+	
+	var _ModelFlags = __webpack_require__(33);
+	
+	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var SpotLight = function (_PerspectiveCamera) {
+	  _inherits(SpotLight, _PerspectiveCamera);
+	
+	  function SpotLight(init) {
+	    _classCallCheck(this, SpotLight);
+	
+	    var _this = _possibleConstructorReturn(this, (SpotLight.__proto__ || Object.getPrototypeOf(SpotLight)).call(this, init));
+	
+	    _this.setFlag(_ModelFlags2.default.LIGHT);
+	    return _this;
+	  }
+	
+	  return SpotLight;
+	}(_PerspectiveCamera3.default);
+	
+	exports.default = SpotLight;
+
+/***/ },
+/* 40 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Model2 = __webpack_require__(32);
+	
+	var _Model3 = _interopRequireDefault(_Model2);
+	
+	var _ModelFlags = __webpack_require__(33);
+	
+	var _ModelFlags2 = _interopRequireDefault(_ModelFlags);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Scene = function (_Model) {
+	  _inherits(Scene, _Model);
+	
+	  function Scene() {
+	    _classCallCheck(this, Scene);
+	
+	    var _this = _possibleConstructorReturn(this, (Scene.__proto__ || Object.getPrototypeOf(Scene)).call(this));
+	
+	    _this.scene = _this;
+	    _this.needsRebuild = false;
+	    _this.lastFrame = 0;
+	    _this.modelFlagKeys = Object.keys(_ModelFlags2.default);
+	    _this.modelFlags = _this.modelFlagKeys.map(function (k) {
+	      return _ModelFlags2.default[k];
+	    });
+	    _this.modelFlagLists = {};
+	    for (var i = 0; i < _this.modelFlags.length; ++i) {
+	      _this.modelFlagLists[_this.modelFlagKeys[i]] = [];
+	    }
+	    _this.enter();
+	    return _this;
+	  }
+	
+	  _createClass(Scene, [{
+	    key: 'rebuild',
+	    value: function rebuild() {
+	      var _this2 = this;
+	
+	      // reset lists
+	      for (var i = 0; i < this.modelFlags.length; ++i) {
+	        this.modelFlagLists[this.modelFlagKeys[i]].length = 0;
+	      }
+	
+	      // traverse the tree to rebuild lists
+	      this.traverse(function (model) {
+	        for (var _i = 0; _i < _this2.modelFlagKeys.length; ++_i) {
+	          if (model.hasFlag(_this2.modelFlags[_i])) {
+	            _this2.modelFlagLists[_this2.modelFlagKeys[_i]].push(model);
+	          }
+	        }
+	      });
+	    }
+	  }, {
+	    key: 'update',
+	    value: function update(time) {
+	      if (this.needsRebuild) {
+	        this.rebuild();
+	      }
+	      var i = void 0;
+	      var list = this.modelFlagLists.PRE_UPDATE;
+	      var len = list.len;
+	      for (i = 0; i < len; ++i) {
+	        list[i].preUpdate(time);
+	      }
+	      list = this.modelFlagLists.MATRIX_UPDATE;
+	      len = list.len;
+	      for (i = 0; i < len; ++i) {
+	        list[i].updateMatrix(time);
+	      }
+	      list = this.modelFlagLists.CAMERA;
+	      len = list.len;
+	      for (i = 0; i < len; ++i) {
+	        list[i].updateView();
+	      }
+	      list = this.modelFlagLists.POST_UPDATE;
+	      len = list.len;
+	      for (i = 0; i < len; ++i) {
+	        list[i].postUpdate(time);
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render(ctx) {
+	      var list = this.modelFlagLists.DRAW;
+	      var len = list.len;
+	      for (var i = 0; i < len; ++i) {
+	        list[i].render(ctx);
+	      }
+	    }
+	  }]);
+	
+	  return Scene;
+	}(_Model3.default);
+	
+	exports.default = Scene;
+
+/***/ },
+/* 41 */
+/***/ function(module, exports) {
+
+	"use strict";
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Engine = function () {
+	  function Engine(canvas) {
+	    _classCallCheck(this, Engine);
+	
+	    this.gl = canvas.getContext(canvas);
+	    this.renderPasses = [];
+	    this.frameCallback = this.frame.bind(this);
+	    this.frame = 0;
+	    this.requestAnimationFrame = window.requestAnimationFrame.bind(window);
+	    this._continuous = true;
+	  }
+	
+	  _createClass(Engine, [{
+	    key: "frame",
+	    value: function frame(time) {
+	      this.frame++;
+	      for (var i = 0; i < this.renderPasses.length; i++) {
+	        this.renderPasses[i].update(time, this.frame);
+	      }
+	      for (var _i = 0; _i < this.renderPasses.length; _i++) {
+	        this.renderPasses[_i].render(this, time);
+	      }
+	      if (this.continuous) {
+	        this.requestAnimationFrame(this.frameCallback);
+	      }
+	    }
+	  }]);
+	
+	  return Engine;
+	}();
+	
+	exports.default = Engine;
+
+/***/ },
+/* 42 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _Scene = __webpack_require__(27);
+	
+	var _PerspectiveCamera = __webpack_require__(35);
+	
+	var _PerspectiveCamera2 = _interopRequireDefault(_PerspectiveCamera);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	var Layer = function () {
+	  function Layer(init) {
+	    _classCallCheck(this, Layer);
+	
+	    init = init || {};
+	    this.scene = init.scene || new _Scene.Scene();
+	    this.camera = init.camera || new _PerspectiveCamera2.default();
+	    this.viewport = init.viewport;
+	    this.clearColor = init.clearColor || { r: 0, g: 0, b: 0 };
+	    this.clearDepth = init.clearDepth || false;
+	    this.target = init.target;
+	  }
+	
+	  _createClass(Layer, [{
+	    key: 'update',
+	    value: function update(time, frame) {
+	      // only update scene once per frame
+	      if (this.scene.lastFrame < frame) {
+	        this.scene.lastFrame = frame;
+	        this.scene.update(time);
+	      }
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render(theater, time) {
+	      if (this.viewport) {
+	        theater.gl.viewport(this.viewport.x, this.viewport.y, this.viewport.width, this.viewport.height);
+	      } else {
+	        theater.gl.viewport(0, 0, theater.gl.canvas.width, theater.gl.canvas.height);
+	      }
+	      var clearFlags = this.clearDepth ? theater.gl.DEPTH_BUFFER_BIT : 0;
+	      if (this.clearColor) {
+	        theater.gl.clearColor(this.clearColor.r, this.clearColor.g, this.clearColor.b, this.clearColor.a || 1.0);
+	        // eslint-disable-next-line no-bitwise
+	        clearFlags |= theater.gl.COLOR_BUFFER_BIT;
+	      }
+	
+	      if (clearFlags) {
+	        theater.gl.clear(clearFlags);
+	      }
+	
+	      var ctx = {
+	        time: time,
+	        camera: this.camera
+	      };
+	
+	      // TODO deal with render targets
+	      this.scene.render(ctx);
+	    }
+	  }]);
+	
+	  return Layer;
+	}();
+	
+	exports.default = Layer;
 
 /***/ }
 /******/ ])});;
