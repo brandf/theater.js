@@ -1,6 +1,5 @@
-import { mat4, vec3, quat } from 'gl-matrix';
+import { Matrix4, Vector3, Quaternion, Pose } from '../Math';
 import ModelFlags from './ModelFlags';
-import Pose from '../Math/Pose';
 
 const InternalModelFlags = {
   ENTERED: 1,
@@ -14,7 +13,7 @@ export default class Model {
     this.parent = null;
     this.children = null;
     this.pose = new Pose();
-    this.modelMatrix = mat4.create();
+    this.modelMatrix = Matrix4.create();
     this.behaviors = (init && init.behaviors) || null;
     this.drawable = null;
     if ((init && init.drawable)) {
@@ -132,9 +131,9 @@ export default class Model {
   updateMatrix() {
     this.pose.updateMatrix();
     if (this.parent) {
-      mat4.multiply(this.modelMatrix, this.parent.modelMatrix, this.pose.matrix);
+      Matrix4.multiply(this.modelMatrix, this.parent.modelMatrix, this.pose.matrix);
     } else {
-      mat4.copy(this.modelMatrix, this.pose.matrix);
+      Matrix4.copy(this.modelMatrix, this.pose.matrix);
     }
   }
   postUpdate(time) {
@@ -155,14 +154,14 @@ export default class Model {
     pose.copyTo(this.pose);
   }
   moveTo(x, y, z) {
-    vec3.set(this.pose.position, x, y, z);
+    Vector3.set(this.pose.position, x, y, z);
   }
   lookAt(x, y, z) {
-    mat4.lookAt(this.pose.matrix,
+    Matrix4.lookAt(this.pose.matrix,
                 this.pose.position,
-                vec3.fromValues(x, y, z),
-                vec3.fromValues(0, 1, 0));
-    mat4.getRotation(this.pose.orientation, this.pose.matrix);
-    quat.invert(this.pose.orientation, this.pose.orientation);
+                Vector3.fromValues(x, y, z),
+                Vector3.fromValues(0, 1, 0));
+    Matrix4.getRotation(this.pose.orientation, this.pose.matrix);
+    Quaternion.invert(this.pose.orientation, this.pose.orientation);
   }
 }

@@ -1,4 +1,4 @@
-import PerspectiveCamera from '../Camera/PerspectiveCamera';
+import PerspectiveCamera from '../Cameras/PerspectiveCamera';
 import ModelFlags from '../ModelFlags';
 
 export default class SpotLight extends PerspectiveCamera {

@@ -1,5 +1,5 @@
-import { Model } from './Model';
-import { PerspectiveCamera } from './Camera/PerspectiveCamera';
+import Model from './Model';
+import PerspectiveCamera from './Cameras/PerspectiveCamera';
 
 export default class Layer {
   constructor(init) {

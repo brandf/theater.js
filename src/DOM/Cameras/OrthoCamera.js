@@ -1,4 +1,4 @@
-import { mat4 } from 'gl-matrix';
+import { Matrix } from '../../Math';
 import Camera from './Camera';
 
 export default class OrthoCamera extends Camera {
@@ -13,7 +13,7 @@ export default class OrthoCamera extends Camera {
     this.updateProjection();
   }
   updateProjection() {
-    mat4.ortho(this.projMatrix,
+    Matrix.ortho(this.projMatrix,
                this.left,
                this.right === null ? this.left + this.viewportWidth : this.right,
                this.top,

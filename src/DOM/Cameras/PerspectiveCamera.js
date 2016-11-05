@@ -1,4 +1,4 @@
-import { mat4 } from 'gl-matrix';
+import { Matrix } from '../../Math';
 import Camera from './Camera';
 
 export default class PerspectiveCamera extends Camera {
@@ -10,7 +10,7 @@ export default class PerspectiveCamera extends Camera {
     this.updateProjection();
   }
   updateProjection() {
-    mat4.perspective(this.projMatrix,
+    Matrix.perspective(this.projMatrix,
                      this.fov,
                      this.viewportWidth / this.viewportHeight,
                      this.near,

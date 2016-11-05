@@ -1,4 +1,4 @@
-import OrthoCamera from '../Camera/OrthoCamera';
+import OrthoCamera from '../Cameras/OrthoCamera';
 import ModelFlags from '../ModelFlags';
 
 export default class DirectionalLight extends OrthoCamera {
